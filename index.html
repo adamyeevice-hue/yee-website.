@@ -3,309 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yee. — Hong Kong electronic music community. Underground insights, exclusive mixes, events.">
+  <meta name="description" content="Yee. — Music and community platform spotlighting the sounds of the underground from Hong Kong to the world.">
   <meta property="og:title" content="Yee. — Hong Kong Electronic Music">
-  <meta property="og:description" content="Underground insights, exclusive mixes, and events from Hong Kong's electronic music scene.">
+  <meta property="og:description" content="Music and community platform spotlighting the sounds of the underground from Hong Kong to the world.">
   <meta property="og:image" content="https://thumbnailer.mixcloud.com/unsafe/1200x628/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649">
   <title>Yee. — Hong Kong Electronic Music</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      /* Colours */
-      --bg:      #ffffff;
-      --bg2:     #f5f3ee;
-      --bg3:     #edeae4;
-      --tx:      #111111;
-      --tx2:     #888888;
-      --tx3:     #cccccc;
-      --br:      #e5e2dc;
-      --brh:     #c8c4bc;
-      /* Accent — Claude orange */
-      --or:      #D97A52;
-      --or-bg:   rgba(217,122,82,0.07);
-      --or-bd:   rgba(217,122,82,0.35);
-      /* Fonts */
+      --bg:   #ffffff;
+      --bg2:  #f5f3ee;
+      --bg3:  #edeae4;
+      --tx:   #111111;
+      --tx2:  #888888;
+      --tx3:  #cccccc;
+      --br:   #e5e2dc;
+      --brh:  #c8c4bc;
+      --or:   #D97A52;
+      --or2:  rgba(217,122,82,0.08);
+      --or3:  rgba(217,122,82,0.35);
+      --dk:   #111111;
       --fa: 'Aptos','Segoe UI Variable','Segoe UI',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
       --fd: 'Syne', sans-serif;
       --fm: 'Space Mono', monospace;
       --fb: 'DM Sans', sans-serif;
     }
-
-    html { background: var(--bg); color: var(--tx); scroll-behavior: smooth; }
+    html { background: var(--bg); color: var(--tx); }
     body { font-family: var(--fb); font-weight: 300; min-height: 100vh; }
     a { color: inherit; text-decoration: none; }
     img { display: block; }
 
-    /* ─────────── NAV ─────────── */
+    /* ──── NAV ──── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; height: 60px;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2rem; border-bottom: 1px solid var(--br);
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px); z-index: 100;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); z-index: 100;
     }
     .logo-wrap { display: flex; align-items: center; gap: 10px; cursor: pointer; }
     .logo-img  { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid var(--br); }
-    .logo-text { font-family: var(--fa); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--tx); }
+    .logo-tx   { font-family: var(--fa); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--tx); }
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a {
-      font-family: var(--fm); font-size: 10px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--tx2); transition: color 0.15s;
-    }
+    .nav-links a { font-family: var(--fm); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tx2); transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--tx); }
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-    /* orange accent button — used in nav and throughout */
+    .nav-r { display: flex; align-items: center; gap: 1.5rem; }
     .btn-or {
       font-family: var(--fm); font-size: 10px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--or);
-      border: 1px solid var(--or-bd); padding: 5px 12px;
-      transition: background 0.15s, color 0.15s;
-      display: inline-block;
+      text-transform: uppercase; color: var(--or); border: 1px solid var(--or3);
+      padding: 5px 12px; transition: background 0.15s, color 0.15s; display: inline-block;
     }
     .btn-or:hover { background: var(--or); color: #fff; border-color: var(--or); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { display: block; width: 20px; height: 1px; background: var(--tx2); }
 
-    /* ─────────── PAGES ─────────── */
+    /* ──── PAGES ──── */
     .page { display: none; padding-top: 60px; min-height: 100vh; animation: fi .22s ease; }
     .page.active { display: block; }
     @keyframes fi { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
 
-    /* ─────────── SECTION CHROME ─────────── */
-    .section-hd {
+    /* ──── SHARED: section header ──── */
+    .s-hd {
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--br);
     }
-    .section-ttl {
-      font-family: var(--fa); font-weight: 700; font-size: 20px;
-      letter-spacing: -0.01em; color: var(--tx);
-    }
+    .s-ttl { font-family: var(--fa); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; }
 
-    /* ═══════════ HOME ═══════════ */
+    /* ════ HOME ════ */
 
-    /* HERO — left brand + right newsletter */
-    .hero {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--br); min-height: 440px;
-    }
+    /* HERO — brand left + Substack right */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--br); min-height: 460px; }
     .hero-l {
-      padding: 4rem 2.5rem; border-right: 1px solid var(--br);
-      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 3.5rem 2.5rem; border-right: 1px solid var(--br);
+      display: flex; flex-direction: column; gap: 1.25rem;
     }
-    .hero-eye {
-      font-family: var(--fm); font-size: 10px; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--tx2); margin-bottom: 2rem;
-    }
-    .hero-name {
-      font-family: var(--fa); font-weight: 700;
-      font-size: clamp(64px,10vw,128px);
-      letter-spacing: -0.04em; line-height: 0.88; color: var(--tx);
-      flex: 1; display: flex; align-items: center;
-    }
-    .hero-sub {
-      font-size: 14px; font-weight: 300; line-height: 1.75;
-      color: var(--tx2); max-width: 380px; margin-top: 2rem;
-    }
+    .hero-eye { font-family: var(--fm); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tx2); }
+    .hero-name { font-family: var(--fa); font-weight: 700; font-size: clamp(56px,8vw,100px); letter-spacing: -0.04em; line-height: 0.88; color: var(--tx); }
+    .hero-brand { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--tx2); max-width: 420px; }
+    .hero-brand strong { color: var(--tx); font-weight: 500; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+    .hero-tag { font-family: var(--fm); font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid var(--br); padding: 4px 10px; color: var(--tx2); }
+    .hero-loc { font-family: var(--fm); font-size: 10px; letter-spacing: 0.06em; color: var(--tx3); margin-top: 0.25rem; }
 
-    /* Substack side — dark panel */
+    /* Substack right panel — dark */
     .hero-r {
-      padding: 4rem 2.5rem; background: var(--tx); color: #fff;
+      padding: 3.5rem 2.5rem; background: var(--dk); color: #fff;
       display: flex; flex-direction: column; justify-content: space-between;
     }
-    .nl-tag {
-      font-family: var(--fm); font-size: 9px; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 1.25rem;
-    }
-    .nl-ttl {
-      font-family: var(--fa); font-weight: 700;
-      font-size: clamp(26px,3.2vw,40px);
-      letter-spacing: -0.02em; line-height: 1.05; color: #fff; margin-bottom: .75rem;
-    }
-    .nl-desc {
-      font-size: 13px; font-weight: 300; line-height: 1.75;
-      color: rgba(255,255,255,0.6); margin-bottom: 2rem;
-    }
-    .nl-form  { display: flex; flex-direction: column; gap: 8px; }
-    .nl-input {
-      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
-      color: #fff; font-family: var(--fb); font-size: 13px;
-      padding: 11px 14px; outline: none; width: 100%; transition: border-color 0.15s;
-    }
-    .nl-input::placeholder { color: rgba(255,255,255,0.35); }
-    .nl-input:focus { border-color: rgba(255,255,255,0.5); }
-    .nl-btn {
-      background: var(--or); color: #fff; border: none; cursor: pointer;
-      font-family: var(--fm); font-size: 10px; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 11px 18px;
-      transition: opacity 0.15s; align-self: flex-start;
-    }
-    .nl-btn:hover { opacity: 0.88; }
-    .nl-read {
-      font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.4);
-      margin-top: 1.25rem; display: inline-block; transition: color 0.15s;
-    }
-    .nl-read:hover { color: rgba(255,255,255,0.75); }
+    .nl-tag  { font-family: var(--fm); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 1rem; }
+    .nl-ttl  { font-family: var(--fa); font-weight: 700; font-size: clamp(24px,3vw,38px); letter-spacing: -0.02em; line-height: 1.05; color: #fff; margin-bottom: .75rem; }
+    .nl-desc { font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,.6); margin-bottom: 1.75rem; }
+    .nl-form { display: flex; flex-direction: column; gap: 8px; }
+    .nl-inp  { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); color: #fff; font-family: var(--fb); font-size: 13px; padding: 11px 14px; outline: none; width: 100%; transition: border-color 0.15s; }
+    .nl-inp::placeholder { color: rgba(255,255,255,.35); }
+    .nl-inp:focus { border-color: rgba(255,255,255,.5); }
+    .nl-btn  { background: var(--or); color: #fff; border: none; cursor: pointer; font-family: var(--fm); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 18px; transition: opacity 0.15s; align-self: flex-start; }
+    .nl-btn:hover { opacity: .88; }
+    .nl-rd   { font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 1.25rem; display: inline-block; transition: color 0.15s; }
+    .nl-rd:hover { color: rgba(255,255,255,.75); }
 
-    /* MIXCLOUD */
-    .mc-section { border-bottom: 1px solid var(--br); }
-    .mc-embed { width: 100%; display: block; border: none; }
+    /* ──── MIXCLOUD: mix card grid ──── */
+    .mc-sec { border-bottom: 1px solid var(--br); }
+    .mc-grid { display: grid; grid-template-columns: repeat(2,1fr); border-left: 1px solid var(--br); }
+    .mc-card {
+      border-right: 1px solid var(--br); border-bottom: 1px solid var(--br);
+      padding: 1.75rem 2rem; cursor: pointer; transition: background 0.15s;
+    }
+    .mc-card:hover { background: var(--bg2); }
+    .mc-card.playing { background: var(--bg2); border-left: 3px solid var(--or); padding-left: calc(2rem - 2px); }
+    .mc-meta  { display: flex; justify-content: space-between; align-items: center; margin-bottom: .75rem; }
+    .mc-src   { font-family: var(--fm); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tx3); }
+    .mc-dur   { font-family: var(--fm); font-size: 10px; color: var(--tx2); }
+    .mc-name  { font-family: var(--fa); font-weight: 700; font-size: 14px; letter-spacing: -0.01em; color: var(--tx); margin-bottom: .75rem; line-height: 1.35; }
+    .mc-tags  { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: .75rem; }
+    .mc-tag   { font-family: var(--fm); font-size: 8px; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid var(--br); padding: 3px 8px; color: var(--tx2); }
+    .mc-play  { font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--or); transition: opacity 0.15s; }
+    .mc-card.playing .mc-play { color: var(--tx2); }
+    .mc-embed-wrap { border-top: 1px solid var(--br); padding-top: 1rem; margin-top: 0; display: none; }
+    .mc-card.playing .mc-embed-wrap { display: block; }
+    /* Full profile browser at bottom */
+    .mc-full  { border-top: 1px solid var(--br); }
 
-    /* YOUTUBE */
-    .yt-section  { border-bottom: 1px solid var(--br); }
-    .yt-inner    { padding: 2rem 2.5rem; background: var(--bg2); }
-    .yt-channel  {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
-      padding: 1.25rem 1.5rem; background: var(--bg); border: 1px solid var(--br);
-    }
-    .yt-ch-l     { display: flex; align-items: center; gap: 12px; }
-    .yt-avatar   { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--br); }
-    .yt-ch-name  { font-family: var(--fa); font-weight: 700; font-size: 14px; color: var(--tx); }
-    .yt-ch-sub   { font-family: var(--fm); font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--tx2); margin-top: 2px; }
-    /* 16:9 embed container */
-    .yt-embed    { position: relative; width: 100%; padding-bottom: 56.25%; background: #0f0f0f; }
-    .yt-embed iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
-    /* placeholder shown when no video yet */
-    .yt-ph {
-      position: absolute; top:0; left:0; right:0; bottom:0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 12px;
-    }
-    .yt-ph-icon { font-size: 44px; color: rgba(255,255,255,0.15); line-height: 1; }
-    .yt-ph-lbl  {
-      font-family: var(--fm); font-size: 9px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.35);
-    }
+    /* ──── YOUTUBE ──── */
+    .yt-sec { border-bottom: 1px solid var(--br); }
+    .yt-wrap { background: #0f0f0f; padding: 0; }
+    /* 16:9 playlist embed */
+    .yt-embed { position: relative; width: 100%; padding-bottom: 56.25%; }
+    .yt-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-    /* PLATFORMS GRID */
-    .plat-section { border-bottom: 1px solid var(--br); }
-    .plat-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      border-left: 1px solid var(--br);
-    }
+    /* ──── PLATFORMS ──── */
+    .plat-sec { border-bottom: 1px solid var(--br); }
+    .plat-grid { display: grid; grid-template-columns: repeat(3,1fr); border-left: 1px solid var(--br); }
     .plat-card {
       display: flex; flex-direction: column; justify-content: space-between;
       padding: 2rem 2.5rem; border-right: 1px solid var(--br);
-      border-bottom: 1px solid var(--br); min-height: 136px;
+      border-bottom: 1px solid var(--br); min-height: 132px;
       transition: background 0.15s; cursor: pointer;
     }
     .plat-card:hover { background: var(--bg2); }
-    .plat-name { font-family: var(--fd); font-size: 14px; font-weight: 600; color: var(--tx); margin-bottom: 4px; }
-    .plat-desc { font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx2); }
-    .plat-arrow { font-size: 14px; color: var(--tx3); align-self: flex-end; transition: color 0.15s, transform 0.15s; }
-    .plat-card:hover .plat-arrow { color: var(--or); transform: translate(2px,-2px); }
+    .plat-nm  { font-family: var(--fd); font-size: 14px; font-weight: 600; color: var(--tx); margin-bottom: 4px; }
+    .plat-ds  { font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx2); }
+    .plat-ar  { font-size: 14px; color: var(--tx3); align-self: flex-end; transition: color 0.15s, transform 0.15s; }
+    .plat-card:hover .plat-ar { color: var(--or); transform: translate(2px,-2px); }
 
-    /* ═══════════ ABOUT ═══════════ */
-    .about-wrap { max-width: 680px; padding: 5rem 2.5rem; }
-    .page-ttl {
-      font-family: var(--fa); font-weight: 700;
-      font-size: clamp(36px,6vw,58px); letter-spacing: -0.03em;
-      line-height: 0.95; color: var(--tx); margin-bottom: 3rem;
-    }
+    /* ════ ABOUT ════ */
+    .ab-wrap { max-width: 680px; padding: 5rem 2.5rem; }
+    .pg-ttl  { font-family: var(--fa); font-weight: 700; font-size: clamp(36px,6vw,56px); letter-spacing: -0.03em; line-height: 0.95; color: var(--tx); margin-bottom: 3rem; }
     .body-tx p { font-size: 15px; font-weight: 300; line-height: 1.85; color: var(--tx2); margin-bottom: 1.4rem; }
     .body-tx strong { color: var(--tx); font-weight: 500; }
     .body-tx a { color: var(--tx); text-decoration: underline; text-decoration-color: var(--br); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
     .body-tx a:hover { text-decoration-color: var(--or); }
 
-    /* ═══════════ EVENTS ═══════════ */
+    /* ════ EVENTS ════ */
     .ev-wrap { padding: 5rem 2.5rem 4rem; }
-    .ev-hdr  { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-    /* RA "follow" block */
-    .ra-block {
-      border: 1px solid var(--br); padding: 2.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;
-      background: var(--bg2);
-    }
-    .ra-l { max-width: 520px; }
-    .ra-logo { font-family: var(--fa); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; color: var(--tx2); margin-bottom: 8px; }
-    .ra-msg  { font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--tx2); }
-    .ra-msg strong { color: var(--tx); font-weight: 500; }
-    /* event row — for manual events */
-    .ev-row {
-      display: grid; grid-template-columns: 130px 1fr auto;
-      align-items: center; gap: 2rem;
-      padding: 1.5rem 0; border-bottom: 1px solid var(--br);
-      cursor: pointer; transition: padding-left 0.15s;
-    }
-    .ev-row:hover { padding-left: 5px; }
-    .ev-dt { font-family: var(--fm); font-size: 10px; letter-spacing: 0.04em; color: var(--tx2); line-height: 1.7; }
-    .ev-nm { font-family: var(--fd); font-size: 14px; font-weight: 600; color: var(--tx); margin-bottom: 3px; }
-    .ev-vn { font-family: var(--fm); font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--tx2); }
-    .ev-cta { font-family: var(--fm); font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase; white-space: nowrap; }
-    .ev-cta { color: var(--or); border: 1px solid var(--or-bd); padding: 6px 12px; transition: background 0.15s, color 0.15s; }
-    .ev-row:hover .ev-cta { background: var(--or); color: #fff; border-color: var(--or); }
+    .ev-hd   { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .ra-blk  { border: 1px solid var(--br); padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; background: var(--bg2); margin-bottom: 2.5rem; }
+    .ra-l    { max-width: 520px; }
+    .ra-lg   { font-family: var(--fa); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; color: var(--tx2); margin-bottom: 8px; }
+    .ra-tx   { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--tx2); }
+    .ra-tx strong { color: var(--tx); font-weight: 500; }
     .ev-none { font-family: var(--fm); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx3); padding: 2rem 0; }
+    .ev-row  { display: grid; grid-template-columns: 130px 1fr auto; align-items: center; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--br); cursor: pointer; transition: padding-left 0.15s; }
+    .ev-row:hover { padding-left: 5px; }
+    .ev-dt   { font-family: var(--fm); font-size: 10px; letter-spacing: 0.04em; color: var(--tx2); line-height: 1.7; }
+    .ev-nm   { font-family: var(--fd); font-size: 14px; font-weight: 600; color: var(--tx); margin-bottom: 3px; }
+    .ev-vn   { font-family: var(--fm); font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--tx2); }
+    .ev-ct   { font-family: var(--fm); font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--or); border: 1px solid var(--or3); padding: 6px 12px; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+    .ev-row:hover .ev-ct { background: var(--or); color: #fff; border-color: var(--or); }
 
-    /* ═══════════ ARCHIVE ═══════════ */
-    .arc-wrap { padding-top: 5rem; }
-    .arc-lbl { font-family: var(--fm); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tx3); padding: 0 2.5rem 1.25rem; }
-    .arc-grid { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid var(--br); border-left: 1px solid var(--br); }
-    .arc-card {
-      border-right: 1px solid var(--br); border-bottom: 1px solid var(--br);
-      padding: 2rem 2.5rem; cursor: pointer; transition: background 0.15s; position: relative;
-    }
+    /* ════ ARCHIVE ════ */
+    .arc-wrap  { padding-top: 5rem; }
+    .arc-lbl   { font-family: var(--fm); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tx3); padding: 0 2.5rem 1.25rem; }
+    .arc-grid  { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid var(--br); border-left: 1px solid var(--br); }
+    .arc-card  { border-right: 1px solid var(--br); border-bottom: 1px solid var(--br); padding: 2rem 2.5rem; cursor: pointer; transition: background 0.15s; position: relative; }
     .arc-card:hover { background: var(--bg2); }
-    .arc-dt { font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx3); margin-bottom: 10px; }
-    .arc-nm { font-family: var(--fd); font-size: 13px; font-weight: 600; color: var(--tx); margin-bottom: 7px; line-height: 1.4; padding-right: 22px; }
-    .arc-mt { font-family: var(--fm); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tx2); }
+    .arc-dt    { font-family: var(--fm); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx3); margin-bottom: 10px; }
+    .arc-nm    { font-family: var(--fd); font-size: 13px; font-weight: 600; color: var(--tx); margin-bottom: 7px; line-height: 1.4; padding-right: 22px; }
+    .arc-mt    { font-family: var(--fm); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tx2); }
     .arc-card::after { content: '↗'; position: absolute; top: 2rem; right: 2rem; font-size: 12px; color: var(--tx3); transition: color 0.15s; }
     .arc-card:hover::after { color: var(--or); }
     .arc-player { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--br); }
-    /* full-width Mixcloud link at bottom of archive */
-    .arc-mc-link {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.5rem 2.5rem; border-top: 1px solid var(--br);
-      font-family: var(--fm); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .arc-mc-link span { color: var(--tx2); }
-    .arc-mc-link a { color: var(--or); border: 1px solid var(--or-bd); padding: 6px 14px; transition: background 0.15s, color 0.15s; }
-    .arc-mc-link a:hover { background: var(--or); color: #fff; border-color: var(--or); }
+    .arc-mc-lk { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 2.5rem; border-top: 1px solid var(--br); font-family: var(--fm); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .arc-mc-lk span { color: var(--tx2); }
 
-    /* ═══════════ FOOTER ═══════════ */
-    footer {
-      margin-top: 5rem; padding: 1.5rem 2.5rem;
-      border-top: 1px solid var(--br);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .ft-logo { font-family: var(--fa); font-weight: 700; font-size: 13px; color: var(--tx2); }
-    .ft-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
-    .ft-links a { font-family: var(--fm); font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tx2); transition: color 0.15s; }
-    .ft-links a:hover { color: var(--tx); }
-    .ft-copy { font-family: var(--fm); font-size: 9px; letter-spacing: 0.06em; color: var(--tx3); }
+    /* ──── FOOTER ──── */
+    footer { margin-top: 5rem; padding: 1.5rem 2.5rem; border-top: 1px solid var(--br); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .ft-lg  { font-family: var(--fa); font-weight: 700; font-size: 13px; color: var(--tx2); }
+    .ft-lks { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .ft-lks a { font-family: var(--fm); font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tx2); transition: color 0.15s; }
+    .ft-lks a:hover { color: var(--tx); }
+    .ft-cp  { font-family: var(--fm); font-size: 9px; letter-spacing: 0.05em; color: var(--tx3); }
 
-    /* ─── MOBILE NAV ─── */
-    .mob-nav {
-      display: none; position: fixed; top: 60px; left: 0; right: 0;
-      background: #fff; border-bottom: 1px solid var(--br);
-      padding: 1.5rem 2.5rem; z-index: 99;
-      flex-direction: column; gap: 1.25rem;
-    }
+    /* ──── MOBILE NAV ──── */
+    .mob-nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--br); padding: 1.5rem 2.5rem; z-index: 99; flex-direction: column; gap: 1.25rem; }
     .mob-nav.open { display: flex; }
     .mob-nav a { font-family: var(--fm); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tx2); }
     .mob-nav a.active { color: var(--tx); }
 
-    /* ─── RESPONSIVE ─── */
+    /* ──── RESPONSIVE ──── */
     @media (max-width: 800px) {
       .hero { grid-template-columns: 1fr; }
       .hero-l { border-right: none; border-bottom: 1px solid var(--br); }
-      .plat-grid { grid-template-columns: repeat(2,1fr); }
-      .arc-grid  { grid-template-columns: 1fr; }
-      .ev-row    { grid-template-columns: 1fr; gap: 0.5rem; }
-      .ev-cta    { display: none; }
+      .mc-grid, .plat-grid { grid-template-columns: 1fr; }
+      .arc-grid { grid-template-columns: 1fr; }
+      .ev-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .ev-ct  { display: none; }
       nav .nav-links { display: none; }
       .hamburger { display: flex; }
-      .section-hd, .mc-section, .yt-inner,
-      .ev-wrap, .about-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .s-hd, .ev-wrap, .ab-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
       .hero-l, .hero-r { padding: 2.5rem 1.5rem; }
-      .plat-card { padding: 1.5rem; }
-      footer { padding: 1.5rem; }
-      .ra-block { padding: 1.5rem; }
+      .mc-card, .plat-card { padding: 1.5rem; }
+      footer, .arc-mc-lk { padding: 1.5rem; }
+      .ra-blk { padding: 1.5rem; }
     }
     @media (max-width: 480px) {
       .plat-grid { grid-template-columns: 1fr; }
@@ -314,14 +225,13 @@
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- ──── NAV ──── -->
 <nav>
   <div class="logo-wrap" onclick="show('home')">
     <img class="logo-img"
       src="https://thumbnailer.mixcloud.com/unsafe/120x120/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649"
-      alt="Yee."
-      onerror="this.style.display='none'">
-    <span class="logo-text">Yee.</span>
+      alt="Yee." onerror="this.style.display='none'">
+    <span class="logo-tx">Yee.</span>
   </div>
   <ul class="nav-links">
     <li><a href="#" id="n-home"    onclick="show('home');return false"    class="active">Home</a></li>
@@ -329,7 +239,7 @@
     <li><a href="#" id="n-events"  onclick="show('events');return false"  >Events</a></li>
     <li><a href="#" id="n-archive" onclick="show('archive');return false" >Archive</a></li>
   </ul>
-  <div class="nav-right">
+  <div class="nav-r">
     <a class="btn-or" href="https://yeehk.substack.com/" target="_blank" rel="noopener">Newsletter ↗</a>
     <div class="hamburger" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -342,149 +252,232 @@
   <a href="#" id="mn-about"   onclick="show('about');return false"  >About</a>
   <a href="#" id="mn-events"  onclick="show('events');return false" >Events</a>
   <a href="#" id="mn-archive" onclick="show('archive');return false">Archive</a>
-  <a href="https://yeehk.substack.com/" target="_blank">Newsletter (Substack) ↗</a>
+  <a href="https://yeehk.substack.com/" target="_blank">Newsletter ↗</a>
   <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram @yee.___hk</a>
 </div>
 
 
-<!-- ════════════════════════════════
-     HOME
-════════════════════════════════ -->
+<!-- ════════════ HOME ════════════ -->
 <div id="pg-home" class="page active">
 
   <!-- HERO -->
   <div class="hero">
+    <!-- Left: Brand statement -->
     <div class="hero-l">
-      <p class="hero-eye">Hong Kong — Electronic Music Community</p>
+      <p class="hero-eye">Hong Kong — Electronic Music</p>
       <div class="hero-name">Yee.</div>
-      <p class="hero-sub">Underground insights, exclusive mixes, behind-the-scenes event stories, and culture from Hong Kong's electronic music scene.</p>
+      <p class="hero-brand">
+        <strong>Yee. is a music and community platform spotlighting the sounds of the underground from Hong Kong to the world.</strong>
+        We curate high-energy events for the city, spotlight local talent, and create spaces where beats, culture, and connection thrive.
+        Yee. is all about pushing the culture forward — together.
+      </p>
+      <p class="hero-brand" style="margin-top:0; color: var(--tx3);">音樂社群</p>
+      <div class="hero-tags">
+        <span class="hero-tag">electronic</span>
+        <span class="hero-tag">bass</span>
+        <span class="hero-tag">techno</span>
+        <span class="hero-tag">140</span>
+      </div>
+      <p class="hero-loc">📍 HK +852 to the world</p>
     </div>
+
+    <!-- Right: Newsletter / Substack -->
     <div class="hero-r">
       <p class="nl-tag">Newsletter — Substack</p>
       <h2 class="nl-ttl">The Yee. Substack</h2>
       <p class="nl-desc">In-depth underground music insights, exclusive monthly mixes, event stories, and thoughtful editorials on electronic music culture. Curated by adam. from Yee.</p>
       <div class="nl-form">
-        <input class="nl-input" type="email" id="nl-email" placeholder="your@email.com" autocomplete="email"/>
+        <input class="nl-inp" type="email" id="nl-email" placeholder="your@email.com" autocomplete="email"/>
         <button class="nl-btn" onclick="nlSub()">Subscribe free →</button>
       </div>
-      <a class="nl-read" href="https://yeehk.substack.com/" target="_blank" rel="noopener">Read latest issues on Substack ↗</a>
+      <a class="nl-rd" href="https://yeehk.substack.com/" target="_blank" rel="noopener">Read latest issues on Substack ↗</a>
     </div>
   </div>
 
-  <!-- MIXCLOUD -->
-  <div class="mc-section">
-    <div class="section-hd">
-      <h2 class="section-ttl">Latest Mixes</h2>
-      <a class="btn-or" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">All mixes on Mixcloud ↗</a>
+  <!-- MIXCLOUD: Actual show cards with real slugs -->
+  <div class="mc-sec">
+    <div class="s-hd">
+      <h2 class="s-ttl">Latest Mixes</h2>
+      <a class="btn-or" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">All 29 shows on Mixcloud ↗</a>
     </div>
-    <!-- Full profile feed — shows browse-able list of all mixes at 560px -->
-    <iframe class="mc-embed" height="560"
-      src="https://www.mixcloud.com/widget/iframe/?hide_cover=0&dark=0&feed=%2Fyeehk%2F"
-      allow="autoplay" loading="lazy" frameborder="0">
-    </iframe>
+    <div class="mc-grid">
+
+      <!-- Mix 1: TFEELSCARY — slug CONFIRMED -->
+      <div class="mc-card" onclick="playMix(this)"
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&autoplay=0&feed=%2Fyeehk%2Fyee-presents-tfeelscary-01052026-hkcr%2F"
+        data-url="https://www.mixcloud.com/yeehk/yee-presents-tfeelscary-01052026-hkcr/">
+        <div class="mc-meta">
+          <span class="mc-src">HKCR · 2 weeks ago</span>
+          <span class="mc-dur">1:01:04</span>
+        </div>
+        <p class="mc-name">Yee. presents TFEELSCARY — 01/05/2026</p>
+        <div class="mc-tags">
+          <span class="mc-tag">techno</span>
+          <span class="mc-tag">detroit techno</span>
+          <span class="mc-tag">industrial techno</span>
+          <span class="mc-tag">minimal techno</span>
+        </div>
+        <span class="mc-play">▶ Play mix</span>
+        <div class="mc-embed-wrap">
+          <iframe width="100%" height="60" frameborder="0" allow="autoplay"
+            src="about:blank" data-src=""></iframe>
+        </div>
+      </div>
+
+      <!-- Mix 2: Tuesday -->
+      <div class="mc-card" onclick="playMix(this)"
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&autoplay=0&feed=%2Fyeehk%2Fyee-presents-tuesday-02042026-hkcr%2F"
+        data-url="https://www.mixcloud.com/yeehk/yee-presents-tuesday-02042026-hkcr/">
+        <div class="mc-meta">
+          <span class="mc-src">HKCR · 1 month ago</span>
+          <span class="mc-dur">58:33</span>
+        </div>
+        <p class="mc-name">Yee. presents Tuesday — 02/04/2026</p>
+        <div class="mc-tags">
+          <span class="mc-tag">bassline</span>
+          <span class="mc-tag">uk bass</span>
+          <span class="mc-tag">garage (ukg)</span>
+        </div>
+        <span class="mc-play">▶ Play mix</span>
+        <div class="mc-embed-wrap">
+          <iframe width="100%" height="60" frameborder="0" allow="autoplay"
+            src="about:blank" data-src=""></iframe>
+        </div>
+      </div>
+
+      <!-- Mix 3: Ezzrei -->
+      <div class="mc-card" onclick="playMix(this)"
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&autoplay=0&feed=%2Fyeehk%2Fyee-presents-ezzrei-05032026-hkcr%2F"
+        data-url="https://www.mixcloud.com/yeehk/yee-presents-ezzrei-05032026-hkcr/">
+        <div class="mc-meta">
+          <span class="mc-src">HKCR · 2 months ago</span>
+          <span class="mc-dur">1:01:04</span>
+        </div>
+        <p class="mc-name">Yee. presents Ezzrei — 05/03/2026</p>
+        <div class="mc-tags">
+          <span class="mc-tag">multi-genre</span>
+          <span class="mc-tag">electronic</span>
+          <span class="mc-tag">bass</span>
+          <span class="mc-tag">jungle</span>
+          <span class="mc-tag">uk bass</span>
+        </div>
+        <span class="mc-play">▶ Play mix</span>
+        <div class="mc-embed-wrap">
+          <iframe width="100%" height="60" frameborder="0" allow="autoplay"
+            src="about:blank" data-src=""></iframe>
+        </div>
+      </div>
+
+      <!-- Mix 4: Oscar Days -->
+      <div class="mc-card" onclick="playMix(this)"
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&autoplay=0&feed=%2Fyeehk%2Fyee-presents-oscar-days-05022026-hkcr%2F"
+        data-url="https://www.mixcloud.com/yeehk/yee-presents-oscar-days-05022026-hkcr/">
+        <div class="mc-meta">
+          <span class="mc-src">HKCR · 3 months ago</span>
+          <span class="mc-dur">1:01:04</span>
+        </div>
+        <p class="mc-name">Yee. presents Oscar Days — 05/02/2026</p>
+        <div class="mc-tags">
+          <span class="mc-tag">electronic</span>
+          <span class="mc-tag">house</span>
+          <span class="mc-tag">techno</span>
+        </div>
+        <span class="mc-play">▶ Play mix</span>
+        <div class="mc-embed-wrap">
+          <iframe width="100%" height="60" frameborder="0" allow="autoplay"
+            src="about:blank" data-src=""></iframe>
+        </div>
+      </div>
+
+    </div>
+    <!-- Full profile browser -->
+    <div class="mc-full">
+      <iframe width="100%" height="180" frameborder="0" allow="autoplay"
+        src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=0&feed=%2Fyeehk%2F"
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
 
-  <!-- YOUTUBE -->
-  <div class="yt-section">
-    <div class="section-hd">
-      <h2 class="section-ttl">Watch</h2>
+  <!-- YOUTUBE: Real channel playlist — all videos clickable -->
+  <div class="yt-sec">
+    <div class="s-hd">
+      <h2 class="s-ttl">Watch</h2>
       <a class="btn-or" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube @yee._hk ↗</a>
     </div>
-    <div class="yt-inner">
-      <!-- Channel identity card -->
-      <div class="yt-channel">
-        <div class="yt-ch-l">
-          <img class="yt-avatar"
-            src="https://thumbnailer.mixcloud.com/unsafe/120x120/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649"
-            alt="Yee." onerror="this.style.display='none'">
-          <div>
-            <p class="yt-ch-name">Yee.</p>
-            <p class="yt-ch-sub">@yee._hk — Video &amp; Livestreams</p>
-          </div>
-        </div>
-        <a class="btn-or" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">Subscribe on YouTube ↗</a>
-      </div>
-      <!-- 16:9 embed area -->
+    <div class="yt-wrap">
       <div class="yt-embed">
         <!--
-          ════════════════════════════════════════════════════
-          TO ACTIVATE: Once you upload a video to YouTube,
-          replace VIDEO_ID below with the ID from its URL.
-          Example: youtube.com/watch?v=dQw4w9WgXcQ → VIDEO_ID = dQw4w9WgXcQ
-          Then delete the yt-ph block and uncomment the iframe.
-          ════════════════════════════════════════════════════
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy">
-          </iframe>
+          Channel uploads playlist — automatically shows all videos.
+          Channel ID: UCgdkugxr8TThG1koXg9WC6w → uploads playlist: UUgdkugxr8TThG1koXg9WC6w
+          Videos visible on channel: Tuesday b2b 1908, Oscar Days b2b GONG!, adam. b2b Horacio,
+          01 Festival at Murray House, Recovery Sessions playlist
         -->
-        <div class="yt-ph">
-          <div class="yt-ph-icon">▶</div>
-          <p class="yt-ph-lbl">Video content coming soon</p>
-          <a class="btn-or" style="margin-top:4px;" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">Subscribe to be notified ↗</a>
-        </div>
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=UUgdkugxr8TThG1koXg9WC6w&rel=0&modestbranding=1&color=white"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy">
+        </iframe>
       </div>
     </div>
   </div>
 
   <!-- PLATFORMS -->
-  <div class="plat-section">
-    <div class="section-hd">
-      <h2 class="section-ttl">Find us on</h2>
-    </div>
+  <div class="plat-sec">
+    <div class="s-hd"><h2 class="s-ttl">Find us on</h2></div>
     <div class="plat-grid">
       <a class="plat-card" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">
-        <div><p class="plat-name">Mixcloud</p><p class="plat-desc">Mixes &amp; DJ Sets</p></div>
-        <span class="plat-arrow">↗</span>
+        <div><p class="plat-nm">Mixcloud</p><p class="plat-ds">Mixes &amp; DJ Sets — 29 shows</p></div>
+        <span class="plat-ar">↗</span>
       </a>
       <a class="plat-card" href="https://yeehk.substack.com/" target="_blank" rel="noopener">
-        <div><p class="plat-name">Substack</p><p class="plat-desc">Newsletter &amp; Writing</p></div>
-        <span class="plat-arrow">↗</span>
+        <div><p class="plat-nm">Substack</p><p class="plat-ds">Newsletter &amp; Writing</p></div>
+        <span class="plat-ar">↗</span>
       </a>
       <a class="plat-card" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">
-        <div><p class="plat-name">YouTube</p><p class="plat-desc">Video &amp; Livestreams</p></div>
-        <span class="plat-arrow">↗</span>
+        <div><p class="plat-nm">YouTube</p><p class="plat-ds">Video &amp; Livestreams</p></div>
+        <span class="plat-ar">↗</span>
       </a>
       <a class="plat-card" href="https://hkcr.live" target="_blank" rel="noopener">
-        <div><p class="plat-name">HKCR</p><p class="plat-desc">Radio Broadcasts</p></div>
-        <span class="plat-arrow">↗</span>
+        <div><p class="plat-nm">HKCR</p><p class="plat-ds">Radio Broadcasts</p></div>
+        <span class="plat-ar">↗</span>
       </a>
       <a class="plat-card" href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">
-        <div><p class="plat-name">Instagram</p><p class="plat-desc">@yee.___hk</p></div>
-        <span class="plat-arrow">↗</span>
+        <div><p class="plat-nm">Instagram</p><p class="plat-ds">@yee.___hk</p></div>
+        <span class="plat-ar">↗</span>
       </a>
       <a class="plat-card" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">
-        <div><p class="plat-name">Resident Advisor</p><p class="plat-desc">Events &amp; Listings</p></div>
-        <span class="plat-arrow">↗</span>
+        <div><p class="plat-nm">Resident Advisor</p><p class="plat-ds">Events &amp; Listings</p></div>
+        <span class="plat-ar">↗</span>
       </a>
     </div>
   </div>
 
   <footer>
-    <span class="ft-logo">Yee.</span>
-    <div class="ft-links">
+    <span class="ft-lg">Yee.</span>
+    <div class="ft-lks">
       <a href="https://yeehk.substack.com/" target="_blank">Substack</a>
       <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
       <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
       <a href="https://ra.co/promoters/166205" target="_blank">RA</a>
       <a href="mailto:hello@yee.hk">Contact</a>
     </div>
-    <span class="ft-copy">Hong Kong &copy; 2025</span>
+    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
   </footer>
 </div>
 
 
-<!-- ════════════════════════════════
-     ABOUT
-════════════════════════════════ -->
+<!-- ════════════ ABOUT ════════════ -->
 <div id="pg-about" class="page">
-  <div class="about-wrap">
-    <h2 class="page-ttl">About</h2>
+  <div class="ab-wrap">
+    <h2 class="pg-ttl">About</h2>
     <div class="body-tx">
-      <p><strong>Yee.</strong> is a Hong Kong-based electronic music community and events platform built around the belief that good music builds real connections.</p>
-      <p>We document, share, and celebrate the underground — from warehouse parties to late-night listening sessions, from hardware-obsessed producers to DJs who treat every set as a conversation with the room.</p>
-      <p>Through exclusive mixes on <strong>Mixcloud</strong>, broadcasts on <strong>HKCR</strong>, in-depth writing on <strong>Substack</strong>, and events on <strong>Resident Advisor</strong>, Yee. is building a long-form record of Hong Kong's electronic music culture — the sounds, the spaces, and the people who make it.</p>
+      <p><strong>Yee. is a music and community platform spotlighting the sounds of the underground from Hong Kong to the world.</strong></p>
+      <p>We curate high-energy events for the city, spotlight local talent, and create spaces where beats, culture, and connection thrive. Yee. is all about pushing the culture forward — together.</p>
+      <p>Through exclusive mixes on <strong>Mixcloud</strong>, broadcasts on <strong>HKCR</strong>, video content on <strong>YouTube</strong>, in-depth writing on <strong>Substack</strong>, and events on <strong>Resident Advisor</strong>, Yee. is building a long-form record of Hong Kong's electronic music culture — the sounds, the spaces, and the people who make it.</p>
+      <p>
+        音樂社群 · electronic | bass | techno | 140 · 📍 HK +852 to the world
+      </p>
       <p>
         Follow on <a href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">Instagram @yee.___hk</a> ·
         Subscribe on <a href="https://yeehk.substack.com/" target="_blank" rel="noopener">Substack</a> ·
@@ -493,128 +486,117 @@
     </div>
   </div>
   <footer>
-    <span class="ft-logo">Yee.</span>
-    <div class="ft-links">
+    <span class="ft-lg">Yee.</span>
+    <div class="ft-lks">
       <a href="https://yeehk.substack.com/" target="_blank">Substack</a>
       <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
       <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
       <a href="mailto:hello@yee.hk">Contact</a>
     </div>
-    <span class="ft-copy">Hong Kong &copy; 2025</span>
+    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
   </footer>
 </div>
 
 
-<!-- ════════════════════════════════
-     EVENTS
-════════════════════════════════ -->
+<!-- ════════════ EVENTS ════════════ -->
 <div id="pg-events" class="page">
   <div class="ev-wrap">
-    <div class="ev-hdr">
-      <h2 class="page-ttl">Events</h2>
+    <div class="ev-hd">
+      <h2 class="pg-ttl">Events</h2>
       <a class="btn-or" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">View on Resident Advisor ↗</a>
     </div>
 
-    <!-- RA follow block — honest state (no fake events) -->
-    <div class="ra-block">
+    <div class="ra-blk">
       <div class="ra-l">
-        <p class="ra-logo">Resident Advisor</p>
-        <p class="ra-msg">
-          <strong>Yee. events are listed on Resident Advisor.</strong> Follow our profile there to get notified as soon as new events are announced — RA lets you set alerts for Hong Kong and follow promoters directly.
-        </p>
+        <p class="ra-lg">Resident Advisor</p>
+        <p class="ra-tx"><strong>Yee. events are listed on Resident Advisor.</strong> Follow our profile to get notified when new events are announced — RA lets you set alerts and follow promoters directly.</p>
       </div>
       <a class="btn-or" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">Follow Yee. on RA ↗</a>
     </div>
 
-    <!-- ────────────────────────────────────────────────────────────
-         ADD EVENTS HERE when you have them — duplicate this block:
+    <!--
+      ADD EVENTS BELOW when announced. Duplicate this block:
 
-    <a class="ev-row" href="RA_EVENT_LINK" target="_blank" rel="noopener">
-      <div class="ev-dt">DD Mon YYYY<br>10PM</div>
-      <div>
-        <p class="ev-nm">Event Name Here</p>
-        <p class="ev-vn">Venue, Hong Kong</p>
-      </div>
-      <span class="ev-cta">Tickets ↗</span>
-    </a>
+      <a class="ev-row" href="RA_EVENT_LINK" target="_blank" rel="noopener">
+        <div class="ev-dt">DD Mon YYYY<br>10PM</div>
+        <div>
+          <p class="ev-nm">Event Name</p>
+          <p class="ev-vn">Venue, Hong Kong</p>
+        </div>
+        <span class="ev-ct">Tickets ↗</span>
+      </a>
+    -->
 
-    ──────────────────────────────────────────────────────────── -->
-
-    <p class="ev-none">No events announced yet — check back soon or follow us on RA.</p>
+    <p class="ev-none">No events announced yet — follow us on RA to be first to know.</p>
 
   </div>
   <footer>
-    <span class="ft-logo">Yee.</span>
-    <div class="ft-links">
+    <span class="ft-lg">Yee.</span>
+    <div class="ft-lks">
       <a href="https://ra.co/promoters/166205" target="_blank">Resident Advisor</a>
       <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
       <a href="mailto:hello@yee.hk">Contact</a>
     </div>
-    <span class="ft-copy">Hong Kong &copy; 2025</span>
+    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
   </footer>
 </div>
 
 
-<!-- ════════════════════════════════
-     ARCHIVE
-════════════════════════════════ -->
+<!-- ════════════ ARCHIVE ════════════ -->
 <div id="pg-archive" class="page">
   <div class="arc-wrap">
-    <p class="arc-lbl">Mix Archive — click any mix to play</p>
+    <p class="arc-lbl">Mix Archive — click to play</p>
     <div class="arc-grid">
 
       <!--
-        HOW TO UPDATE ARCHIVE MIXES:
-        1. Go to mixcloud.com/yeehk and open a mix
-        2. Click Share → Embed → copy the src URL
-        3. Paste it as the data-src below
-        4. Update date, title, and length
-        Slug format: %2Fyeehk%2Fyour-mix-title%2F
+        HOW TO ADD MIXES:
+        1. Open a mix on mixcloud.com/yeehk
+        2. Click Share → Embed → copy the src URL from the iframe code
+        3. Paste it as data-src below, update date, title, length
       -->
 
       <div class="arc-card" onclick="toggleArc(this)"
-        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2F">
-        <p class="arc-dt">— Add your mix slug above —</p>
-        <p class="arc-nm">Yee. Mix 001</p>
-        <p class="arc-mt">Mixcloud · — min</p>
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-tfeelscary-01052026-hkcr%2F">
+        <p class="arc-dt">May 2026</p>
+        <p class="arc-nm">Yee. presents TFEELSCARY — HKCR</p>
+        <p class="arc-mt">Mixcloud · 1:01:04</p>
       </div>
 
       <div class="arc-card" onclick="toggleArc(this)"
-        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2F">
-        <p class="arc-dt">— Add your mix slug above —</p>
-        <p class="arc-nm">Yee. Mix 002</p>
-        <p class="arc-mt">Mixcloud · — min</p>
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-tuesday-02042026-hkcr%2F">
+        <p class="arc-dt">Apr 2026</p>
+        <p class="arc-nm">Yee. presents Tuesday — HKCR</p>
+        <p class="arc-mt">Mixcloud · 58:33</p>
       </div>
 
       <div class="arc-card" onclick="toggleArc(this)"
-        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2F">
-        <p class="arc-dt">— Add your mix slug above —</p>
-        <p class="arc-nm">Yee. Mix 003</p>
-        <p class="arc-mt">Mixcloud · — min</p>
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-ezzrei-05032026-hkcr%2F">
+        <p class="arc-dt">Mar 2026</p>
+        <p class="arc-nm">Yee. presents Ezzrei — HKCR</p>
+        <p class="arc-mt">Mixcloud · 1:01:04</p>
       </div>
 
       <div class="arc-card" onclick="toggleArc(this)"
-        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2F">
-        <p class="arc-dt">— Add your mix slug above —</p>
-        <p class="arc-nm">Yee. Mix 004</p>
-        <p class="arc-mt">Mixcloud · — min</p>
+        data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-oscar-days-05022026-hkcr%2F">
+        <p class="arc-dt">Feb 2026</p>
+        <p class="arc-nm">Yee. presents Oscar Days — HKCR</p>
+        <p class="arc-mt">Mixcloud · 1:01:04</p>
       </div>
 
     </div>
-    <!-- Always-on link to full Mixcloud profile -->
-    <div class="arc-mc-link">
-      <span>Full mix history on Mixcloud</span>
-      <a href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Browse all ↗</a>
+    <div class="arc-mc-lk">
+      <span>Full archive — 29 shows on Mixcloud</span>
+      <a class="btn-or" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Browse all ↗</a>
     </div>
   </div>
   <footer>
-    <span class="ft-logo">Yee.</span>
-    <div class="ft-links">
+    <span class="ft-lg">Yee.</span>
+    <div class="ft-lks">
       <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
       <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
       <a href="mailto:hello@yee.hk">Contact</a>
     </div>
-    <span class="ft-copy">Hong Kong &copy; 2025</span>
+    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
   </footer>
 </div>
 
@@ -625,28 +607,43 @@
   function show(id) {
     PAGES.forEach(p => {
       document.getElementById('pg-'+p).classList.toggle('active', p===id);
-      const n = document.getElementById('n-'+p);
-      const m = document.getElementById('mn-'+p);
-      if (n) n.classList.toggle('active', p===id);
-      if (m) m.classList.toggle('active', p===id);
+      ['n-','mn-'].forEach(pfx => {
+        const el = document.getElementById(pfx+p);
+        if (el) el.classList.toggle('active', p===id);
+      });
     });
-    window.scrollTo({ top:0, behavior:'instant' });
+    window.scrollTo({top:0, behavior:'instant'});
     document.getElementById('mob-nav').classList.remove('open');
   }
 
-  function toggleMob() {
-    document.getElementById('mob-nav').classList.toggle('open');
-  }
+  function toggleMob() { document.getElementById('mob-nav').classList.toggle('open'); }
 
   function nlSub() {
     const v = document.getElementById('nl-email').value.trim();
     if (!v || !v.includes('@')) { document.getElementById('nl-email').focus(); return; }
-    window.open('https://yeehk.substack.com/?email=' + encodeURIComponent(v), '_blank');
+    window.open('https://yeehk.substack.com/?email='+encodeURIComponent(v), '_blank');
   }
   document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && document.activeElement.id === 'nl-email') nlSub();
+    if (e.key==='Enter' && document.activeElement.id==='nl-email') nlSub();
   });
 
+  /* Mixcloud card player — lazy-loads the iframe src on click */
+  function playMix(card) {
+    const isPlaying = card.classList.contains('playing');
+    // Collapse all
+    document.querySelectorAll('.mc-card.playing').forEach(c => {
+      c.classList.remove('playing');
+      const iframe = c.querySelector('.mc-embed-wrap iframe');
+      if (iframe) iframe.src = 'about:blank';
+    });
+    if (!isPlaying) {
+      card.classList.add('playing');
+      const iframe = card.querySelector('.mc-embed-wrap iframe');
+      iframe.src = card.dataset.src;
+    }
+  }
+
+  /* Archive expandable player */
   function toggleArc(el) {
     const open = el.classList.contains('expanded');
     document.querySelectorAll('.arc-card.expanded').forEach(c => {
