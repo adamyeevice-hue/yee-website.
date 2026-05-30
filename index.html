@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yee. — Hong Kong electronic music community. Mixes, events, and culture.">
+  <meta property="og:title" content="Yee.">
+  <meta property="og:description" content="Hong Kong electronic music community — mixes, events, and culture.">
+  <title>Yee.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0c0c0c;
+      --bg2:     #141414;
+      --bg3:     #1c1c1c;
+      --tx:      #ede9e0;
+      --tx2:     #5e5e5e;
+      --tx3:     #2e2e2e;
+      --br:      rgba(237,233,224,0.09);
+      --brh:     rgba(237,233,224,0.2);
+      --font-d:  'Unbounded', sans-serif;
+      --font-m:  'Space Mono', monospace;
+      --font-b:  'DM Sans', sans-serif;
+    }
+
+    html { background: var(--bg); color: var(--tx); scroll-behavior: smooth; }
+    body { font-family: var(--font-b); font-weight: 300; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      border-bottom: 1px solid var(--br);
+      background: rgba(12,12,12,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--font-d); font-weight: 700; font-size: 17px;
+      letter-spacing: -0.02em; cursor: pointer;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-m); font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--tx2); transition: color 0.18s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--tx); }
+
+    /* mobile nav toggle */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1px;
+      background: var(--tx2); transition: background 0.2s;
+    }
+    .hamburger:hover span { background: var(--tx); }
+
+    /* ── PAGES ── */
+    .page { display: none; padding-top: 58px; min-height: 100vh; animation: fadein 0.28s ease; }
+    .page.active { display: block; }
+    @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ── HOME — HERO ── */
+    .hero {
+      padding: 5rem 2.5rem 3.5rem;
+      border-bottom: 1px solid var(--br);
+      max-width: 860px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-m); font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tx2); margin-bottom: 1.75rem;
+    }
+    .hero-title {
+      font-family: var(--font-d); font-weight: 700;
+      font-size: clamp(56px, 10vw, 110px);
+      letter-spacing: -0.04em; line-height: 0.9;
+      color: var(--tx); margin-bottom: 2rem;
+    }
+    .hero-sub {
+      font-size: 17px; font-weight: 300; line-height: 1.7;
+      color: var(--tx2); max-width: 480px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .sec-lbl {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--tx3); padding: 2rem 2.5rem 1.25rem;
+    }
+
+    /* ── PLATFORM GRID ── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--br);
+      border-left: 1px solid var(--br);
+    }
+    .plat-card {
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 2.5rem;
+      border-right: 1px solid var(--br);
+      border-bottom: 1px solid var(--br);
+      min-height: 148px;
+      transition: background 0.18s;
+      cursor: pointer;
+    }
+    .plat-card:hover { background: var(--bg2); }
+    .plat-name {
+      font-family: var(--font-d); font-size: 13px;
+      font-weight: 400; letter-spacing: -0.01em;
+      color: var(--tx); margin-bottom: 5px;
+    }
+    .plat-desc {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx2);
+    }
+    .plat-arrow {
+      font-size: 18px; color: var(--tx3);
+      transition: color 0.18s, transform 0.18s;
+      align-self: flex-end; line-height: 1;
+    }
+    .plat-card:hover .plat-arrow { color: var(--tx); transform: translate(2px, -2px); }
+
+    /* ── FEATURED PLAYER ── */
+    .player-wrap {
+      padding: 2.5rem 2.5rem;
+      border-top: 1px solid var(--br);
+    }
+    .player-lbl {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--tx3); margin-bottom: 1rem;
+    }
+    .player-frame {
+      border: 1px solid var(--br); overflow: hidden;
+      width: 100%;
+    }
+
+    /* ── ABOUT ── */
+    .about-inner { max-width: 680px; padding: 5rem 2.5rem 5rem; }
+    .page-title {
+      font-family: var(--font-d); font-weight: 700;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -0.03em; line-height: 1;
+      color: var(--tx); margin-bottom: 3rem;
+    }
+    .body-text p {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: var(--tx2); margin-bottom: 1.5rem;
+    }
+    .body-text p strong { color: var(--tx); font-weight: 500; }
+    .body-text a {
+      color: var(--tx);
+      text-decoration: underline;
+      text-decoration-color: var(--tx3);
+      text-underline-offset: 4px;
+      transition: text-decoration-color 0.2s;
+    }
+    .body-text a:hover { text-decoration-color: var(--tx2); }
+
+    /* ── EVENTS ── */
+    .events-inner { padding: 5rem 2.5rem 3rem; }
+    .events-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .events-ra-link {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--tx2); border: 1px solid var(--br);
+      padding: 8px 14px; transition: border-color 0.18s, color 0.18s;
+    }
+    .events-ra-link:hover { border-color: var(--brh); color: var(--tx); }
+
+    .event-item {
+      display: grid; grid-template-columns: 140px 1fr auto;
+      align-items: center; gap: 2rem;
+      padding: 1.75rem 0; border-bottom: 1px solid var(--br);
+      transition: padding-left 0.18s; cursor: pointer;
+    }
+    .event-item:hover { padding-left: 6px; }
+    .ev-date {
+      font-family: var(--font-m); font-size: 10px;
+      letter-spacing: 0.04em; color: var(--tx2); line-height: 1.6;
+    }
+    .ev-name {
+      font-family: var(--font-d); font-size: 14px;
+      font-weight: 400; letter-spacing: -0.01em; color: var(--tx); margin-bottom: 4px;
+    }
+    .ev-venue {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.07em; text-transform: uppercase; color: var(--tx2);
+    }
+    .ev-btn {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--tx2); border: 1px solid var(--br);
+      padding: 7px 13px; white-space: nowrap;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .event-item:hover .ev-btn { border-color: var(--brh); color: var(--tx); }
+
+    .no-events {
+      padding: 4rem 0;
+      font-family: var(--font-m); font-size: 10px;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--tx3);
+    }
+
+    /* ── ARCHIVE ── */
+    .archive-inner { padding-top: 5rem; }
+    .archive-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--br); border-left: 1px solid var(--br);
+      margin: 0 0;
+    }
+    .arc-item {
+      border-right: 1px solid var(--br); border-bottom: 1px solid var(--br);
+      padding: 2rem 2.5rem; cursor: pointer;
+      transition: background 0.18s;
+      position: relative;
+    }
+    .arc-item:hover { background: var(--bg2); }
+    .arc-date {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--tx3); margin-bottom: 10px;
+    }
+    .arc-title {
+      font-family: var(--font-d); font-size: 13px;
+      font-weight: 400; letter-spacing: -0.01em;
+      color: var(--tx); margin-bottom: 8px; line-height: 1.4;
+      padding-right: 24px;
+    }
+    .arc-meta {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--tx2);
+    }
+    .arc-item::after {
+      content: '↗'; position: absolute; top: 2rem; right: 2rem;
+      font-size: 14px; color: var(--tx3); transition: color 0.18s;
+    }
+    .arc-item:hover::after { color: var(--tx2); }
+    .arc-player {
+      margin-top: 1.25rem; padding-top: 1.25rem;
+      border-top: 1px solid var(--br);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 6rem; padding: 1.75rem 2.5rem;
+      border-top: 1px solid var(--br);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .foot-logo { font-family: var(--font-d); font-size: 13px; font-weight: 700; color: var(--tx2); }
+    .foot-links { display: flex; gap: 2rem; }
+    .foot-links a {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.09em; text-transform: uppercase; color: var(--tx2);
+      transition: color 0.18s;
+    }
+    .foot-links a:hover { color: var(--tx); }
+    .foot-copy {
+      font-family: var(--font-m); font-size: 9px;
+      letter-spacing: 0.06em; color: var(--tx3);
+    }
+
+    /* ── MOBILE NAV DRAWER ── */
+    .mobile-nav {
+      display: none; position: fixed;
+      top: 58px; left: 0; right: 0;
+      background: var(--bg); border-bottom: 1px solid var(--br);
+      padding: 1.5rem 2.5rem; z-index: 99; gap: 1.5rem;
+      flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-m); font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--tx2);
+    }
+    .mobile-nav a.active { color: var(--tx); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+      .platform-grid { grid-template-columns: repeat(2, 1fr); }
+      .archive-grid  { grid-template-columns: 1fr; }
+      .event-item    { grid-template-columns: 1fr; gap: 0.5rem; }
+      .ev-btn        { display: none; }
+      nav .nav-links { display: none; }
+      .hamburger     { display: flex; }
+      .events-ra-link { display: none; }
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .about-inner, .events-inner { padding: 4rem 1.5rem 3rem; }
+      .archive-inner { padding-top: 4rem; }
+      .sec-lbl, .player-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .plat-card { padding: 1.5rem; }
+      footer { padding: 1.5rem; }
+    }
+    @media (max-width: 400px) {
+      .platform-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <span class="logo" onclick="show('home')">Yee.</span>
+  <ul class="nav-links">
+    <li><a href="#" id="n-home"    onclick="show('home');return false"    class="active">Home</a></li>
+    <li><a href="#" id="n-about"   onclick="show('about');return false"   >About</a></li>
+    <li><a href="#" id="n-events"  onclick="show('events');return false"  >Events</a></li>
+    <li><a href="#" id="n-archive" onclick="show('archive');return false" >Archive</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#" id="mn-home"    onclick="show('home');return false"   >Home</a>
+  <a href="#" id="mn-about"   onclick="show('about');return false"  >About</a>
+  <a href="#" id="mn-events"  onclick="show('events');return false" >Events</a>
+  <a href="#" id="mn-archive" onclick="show('archive');return false">Archive</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════ -->
+<div id="pg-home" class="page active">
+
+  <div class="hero">
+    <p class="hero-eyebrow">Hong Kong — Electronic Music Community</p>
+    <h1 class="hero-title">Yee.</h1>
+    <p class="hero-sub">Mixes, events, and culture rooted in Hong Kong's underground electronic music scene.</p>
+  </div>
+
+  <p class="sec-lbl">Find us on</p>
+
+  <div class="platform-grid">
+    <!-- UPDATE: Replace URLs with your actual profile links -->
+    <a class="plat-card" href="https://www.mixcloud.com/yee" target="_blank" rel="noopener">
+      <div>
+        <p class="plat-name">Mixcloud</p>
+        <p class="plat-desc">Mixes &amp; DJ Sets</p>
+      </div>
+      <span class="plat-arrow">↗</span>
+    </a>
+    <a class="plat-card" href="https://yee.substack.com" target="_blank" rel="noopener">
+      <div>
+        <p class="plat-name">Substack</p>
+        <p class="plat-desc">Newsletter &amp; Writing</p>
+      </div>
+      <span class="plat-arrow">↗</span>
+    </a>
+    <a class="plat-card" href="https://www.youtube.com/@yee" target="_blank" rel="noopener">
+      <div>
+        <p class="plat-name">YouTube</p>
+        <p class="plat-desc">Video &amp; Livestreams</p>
+      </div>
+      <span class="plat-arrow">↗</span>
+    </a>
+    <a class="plat-card" href="https://hkcr.live" target="_blank" rel="noopener">
+      <div>
+        <p class="plat-name">HKCR</p>
+        <p class="plat-desc">Radio Broadcasts</p>
+      </div>
+      <span class="plat-arrow">↗</span>
+    </a>
+    <a class="plat-card" href="https://soundcloud.com/yee" target="_blank" rel="noopener">
+      <div>
+        <p class="plat-name">SoundCloud</p>
+        <p class="plat-desc">Tracks &amp; Releases</p>
+      </div>
+      <span class="plat-arrow">↗</span>
+    </a>
+    <a class="plat-card" href="https://ra.co/promoters/yee" target="_blank" rel="noopener">
+      <div>
+        <p class="plat-name">Resident Advisor</p>
+        <p class="plat-desc">Events &amp; Listings</p>
+      </div>
+      <span class="plat-arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="player-wrap">
+    <p class="player-lbl">Latest Mix</p>
+    <!-- UPDATE: Replace the feed URL below with your actual Mixcloud profile path -->
+    <div class="player-frame">
+      <iframe width="100%" height="120"
+        src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&autoplay=0&feed=%2Fyee%2F"
+        frameborder="0" allow="autoplay">
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <span class="foot-logo">Yee.</span>
+    <div class="foot-links">
+      <a href="https://instagram.com/yee.___hk" target="_blank">Instagram</a>
+      <a href="mailto:hello@yee.hk">Contact</a>
+    </div>
+    <span class="foot-copy">Hong Kong &copy; 2025</span>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════════ -->
+<div id="pg-about" class="page">
+  <div class="about-inner">
+    <h2 class="page-title">About</h2>
+    <div class="body-text">
+      <p>
+        <strong>Yee.</strong> is a Hong Kong-based electronic music community and
+        events platform built around the belief that good music builds real connections.
+      </p>
+      <p>
+        We document, share, and celebrate the underground — from warehouse parties
+        to late-night listening sessions, from hardware-obsessed producers to DJs
+        who treat every set as a conversation with the room.
+      </p>
+      <p>
+        Through mixes on <strong>Mixcloud</strong>, broadcasts on <strong>HKCR</strong>,
+        writing on <strong>Substack</strong>, and events listed on
+        <strong>Resident Advisor</strong>, Yee. is building a long-form record of
+        Hong Kong's electronic music culture — the sounds, the spaces, and the people
+        who make it what it is.
+      </p>
+      <p>
+        Follow us on
+        <a href="https://instagram.com/yee.___hk" target="_blank" rel="noopener">
+          Instagram @yee.___hk
+        </a>
+        or get in touch at
+        <a href="mailto:hello@yee.hk">hello@yee.hk</a>.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <span class="foot-logo">Yee.</span>
+    <div class="foot-links">
+      <a href="https://instagram.com/yee.___hk" target="_blank">Instagram</a>
+      <a href="mailto:hello@yee.hk">Contact</a>
+    </div>
+    <span class="foot-copy">Hong Kong &copy; 2025</span>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: EVENTS
+══════════════════════════════════════════ -->
+<div id="pg-events" class="page">
+  <div class="events-inner">
+    <div class="events-header">
+      <h2 class="page-title">Upcoming<br>Events</h2>
+      <!-- UPDATE: Replace with your actual RA promoter URL -->
+      <a class="events-ra-link" href="https://ra.co/promoters/yee" target="_blank" rel="noopener">
+        All events on RA ↗
+      </a>
+    </div>
+
+    <!-- UPDATE: Replace each event's href, date, name, and venue with real data -->
+    <a class="event-item" href="#" target="_blank" rel="noopener">
+      <div class="ev-date">12 Jul 2025<br>10PM</div>
+      <div>
+        <p class="ev-name">Yee. presents — Summer Equinox</p>
+        <p class="ev-venue">Club Kwun Tong, Hong Kong</p>
+      </div>
+      <span class="ev-btn">Tickets ↗</span>
+    </a>
+
+    <a class="event-item" href="#" target="_blank" rel="noopener">
+      <div class="ev-date">26 Jul 2025<br>9PM</div>
+      <div>
+        <p class="ev-name">HKCR × Yee. — Open Broadcast</p>
+        <p class="ev-venue">Sham Shui Po, Hong Kong</p>
+      </div>
+      <span class="ev-btn">RA ↗</span>
+    </a>
+
+    <a class="event-item" href="#" target="_blank" rel="noopener">
+      <div class="ev-date">09 Aug 2025<br>11PM</div>
+      <div>
+        <p class="ev-name">Yee. Residency Vol. 3</p>
+        <p class="ev-venue">Location TBC, HK Island</p>
+      </div>
+      <span class="ev-btn">Tickets ↗</span>
+    </a>
+
+    <!-- ADD MORE EVENTS HERE by duplicating the block above -->
+
+  </div>
+
+  <footer>
+    <span class="foot-logo">Yee.</span>
+    <div class="foot-links">
+      <a href="https://instagram.com/yee.___hk" target="_blank">Instagram</a>
+      <a href="mailto:hello@yee.hk">Contact</a>
+    </div>
+    <span class="foot-copy">Hong Kong &copy; 2025</span>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: ARCHIVE
+══════════════════════════════════════════ -->
+<div id="pg-archive" class="page">
+  <div class="archive-inner">
+    <p class="sec-lbl" style="padding-left: 2.5rem;">Mix Archive</p>
+
+    <div class="archive-grid">
+
+      <!-- Each arc-item: clicking expands an embedded player. -->
+      <!-- UPDATE: Replace data-src with actual Mixcloud widget URLs for each mix -->
+
+      <div class="arc-item" onclick="togglePlayer(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&feed=%2Fyee%2Fmix-012%2F">
+        <p class="arc-date">Jun 2025</p>
+        <p class="arc-title">Yee. Mix 012 — [Artist Name]</p>
+        <p class="arc-meta">Mixcloud · 60 min</p>
+      </div>
+
+      <div class="arc-item" onclick="togglePlayer(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&feed=%2Fyee%2Fhkcr-vol-4%2F">
+        <p class="arc-date">May 2025</p>
+        <p class="arc-title">HKCR Broadcast — Yee. Vol. 4</p>
+        <p class="arc-meta">HKCR · 90 min</p>
+      </div>
+
+      <div class="arc-item" onclick="togglePlayer(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&feed=%2Fyee%2Fmix-011%2F">
+        <p class="arc-date">Apr 2025</p>
+        <p class="arc-title">Yee. Mix 011 — [Artist Name]</p>
+        <p class="arc-meta">Mixcloud · 75 min</p>
+      </div>
+
+      <div class="arc-item" onclick="togglePlayer(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&feed=%2Fyee%2Fmix-010%2F">
+        <p class="arc-date">Mar 2025</p>
+        <p class="arc-title">Yee. Mix 010 — [Artist Name]</p>
+        <p class="arc-meta">Mixcloud · 60 min</p>
+      </div>
+
+      <div class="arc-item" onclick="togglePlayer(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&feed=%2Fyee%2Fhkcr-vol-3%2F">
+        <p class="arc-date">Feb 2025</p>
+        <p class="arc-title">HKCR Broadcast — Yee. Vol. 3</p>
+        <p class="arc-meta">HKCR · 120 min</p>
+      </div>
+
+      <div class="arc-item" onclick="togglePlayer(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=1&feed=%2Fyee%2Fmix-009%2F">
+        <p class="arc-date">Jan 2025</p>
+        <p class="arc-title">Yee. Mix 009 — [Artist Name]</p>
+        <p class="arc-meta">Mixcloud · 60 min</p>
+      </div>
+
+      <!-- ADD MORE ARCHIVE ITEMS HERE by duplicating the blocks above -->
+
+    </div>
+  </div>
+
+  <footer>
+    <span class="foot-logo">Yee.</span>
+    <div class="foot-links">
+      <a href="https://instagram.com/yee.___hk" target="_blank">Instagram</a>
+      <a href="mailto:hello@yee.hk">Contact</a>
+    </div>
+    <span class="foot-copy">Hong Kong &copy; 2025</span>
+  </footer>
+</div>
+
+
+<!-- ── SCRIPTS ── -->
+<script>
+  /* ── Page navigation ── */
+  const pages = ['home','about','events','archive'];
+
+  function show(id) {
+    pages.forEach(p => {
+      document.getElementById('pg-' + p).classList.toggle('active', p === id);
+      const nd = document.getElementById('n-' + p);
+      const mn = document.getElementById('mn-' + p);
+      if (nd) nd.classList.toggle('active', p === id);
+      if (mn) mn.classList.toggle('active', p === id);
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Close mobile nav on selection
+    document.getElementById('mobile-nav').classList.remove('open');
+  }
+
+  /* ── Mobile nav toggle ── */
+  function toggleMobile() {
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+
+  /* ── Archive expandable player ── */
+  function togglePlayer(el) {
+    const isOpen = el.classList.contains('expanded');
+
+    // Collapse all
+    document.querySelectorAll('.arc-item.expanded').forEach(i => {
+      i.classList.remove('expanded');
+      const p = i.querySelector('.arc-player');
+      if (p) p.remove();
+    });
+
+    if (!isOpen) {
+      el.classList.add('expanded');
+      const player = document.createElement('div');
+      player.className = 'arc-player';
+      const src = el.dataset.src;
+      player.innerHTML = '<iframe width="100%" height="60" src="' + src + '" frameborder="0" allow="autoplay"></iframe>';
+      el.appendChild(player);
+    }
+  }
+</script>
+
+</body>
+</html>
