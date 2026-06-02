@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Yee. — Music and community platform spotlighting the sounds of the underground from Hong Kong to the world.">
-  <meta property="og:title" content="Yee. — Hong Kong underground and electronic music and community platform">
+  <meta property="og:title" content="Yee. — Hong Kong Electronic Music and community platform">
   <meta property="og:image" content="https://thumbnailer.mixcloud.com/unsafe/1200x628/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649">
-  <title>Yee. — Hong Kong underground and electronic music and community platform</title>
+  <title>Yee. — Hong Kong Electronic Music</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Barlow Condensed: nav/labels. Syne: display. DM Sans: body. Space Mono: meta -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Syne:wght@400;600;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,82 +16,66 @@
       --bg: #ffffff; --bg2: #f4f2ed; --bg3: #edeae4;
       --tx: #111111; --tx2: #777777; --tx3: #bbbbbb;
       --br: #e4e1db; --brh: #c4c0b8;
-      --or: #D97A52; --or2: rgba(217,122,82,0.09); --or3: rgba(217,122,82,0.38);
+      --or: #D97A52; --or3: rgba(217,122,82,0.38);
       --dk: #111111;
-      --fb:'Barlow Condensed',sans-serif;      /* nav, labels */
-      --fa:'Aptos','Segoe UI Variable','Segoe UI',system-ui,-apple-system,sans-serif; /* headers */
-      --fd:'Syne',sans-serif;                  /* display / card artists */
-      --fm:'Space Mono',monospace;             /* meta / mono */
-      --fb2:'DM Sans',sans-serif;              /* body text */
+      --fb:'Barlow Condensed',sans-serif;
+      --fa:'Aptos','Segoe UI Variable','Segoe UI',system-ui,-apple-system,sans-serif;
+      --fd:'Syne',sans-serif;
+      --fm:'Space Mono',monospace;
+      --fb2:'DM Sans',sans-serif;
     }
     html { background:var(--bg); color:var(--tx); }
     body { font-family:var(--fb2); font-weight:300; min-height:100vh; }
     a { color:inherit; text-decoration:none; }
     img { display:block; }
 
-    /* ─── NAV — black bar ─── */
-    nav {
-      position:fixed; top:0; left:0; right:0; height:60px;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:0 2.5rem;
-      background:#111111;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:100;
-    }
+    /* ─── NAV — black ─── */
+    nav { position:fixed; top:0; left:0; right:0; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 2.5rem; background:#111; border-bottom:1px solid rgba(255,255,255,.08); z-index:100; }
     .logo-wrap { display:flex; align-items:center; gap:10px; cursor:pointer; }
-    .logo-img  { width:30px; height:30px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,0.2); }
-    .logo-tx   { font-family:var(--fa); font-weight:700; font-size:18px; letter-spacing:-0.01em; color:#ffffff; }
-    .nav-links { display:flex; gap:2.25rem; list-style:none; }
-    .nav-links a {
-      font-family:var(--fb); font-weight:700; font-size:14px;
-      letter-spacing:0.08em; text-transform:uppercase;
-      color:rgba(255,255,255,0.55); transition:color .15s;
-    }
-    .nav-links a:hover, .nav-links a.active { color:#ffffff; }
+    .logo-img  { width:30px; height:30px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.2); }
+    .logo-tx   { font-family:var(--fa); font-weight:700; font-size:18px; letter-spacing:-0.01em; color:#fff; }
+    .nav-links { display:flex; gap:1.75rem; list-style:none; }
+    .nav-links a { font-family:var(--fb); font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.5); transition:color .15s; }
+    .nav-links a:hover, .nav-links a.active { color:#fff; }
     .nav-r { display:flex; align-items:center; gap:1.5rem; }
-    /* Newsletter — always orange filled */
-    .btn-or {
-      font-family:var(--fb); font-weight:700; font-size:13px;
-      letter-spacing:0.07em; text-transform:uppercase;
-      background:var(--or); color:#ffffff;
-      border:1px solid var(--or); padding:6px 16px; border-radius:50px;
-      transition:opacity .15s; display:inline-block;
-    }
-    .btn-or:hover { opacity:0.85; }
-    /* Orange outlined variant for within-page buttons */
-    .btn-or-out {
-      font-family:var(--fm); font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
-      color:var(--or); border:1px solid var(--or3); padding:6px 14px; border-radius:50px;
-      transition:background .15s,color .15s; display:inline-block;
-    }
-    .btn-or-out:hover { background:var(--or); color:#fff; border-color:var(--or); }
+    /* Always-orange filled button */
+    .btn-or { font-family:var(--fb); font-weight:700; font-size:13px; letter-spacing:0.07em; text-transform:uppercase; background:var(--or); color:#fff; border:1px solid var(--or); padding:6px 16px; border-radius:50px; transition:opacity .15s; display:inline-block; }
+    .btn-or:hover { opacity:.85; }
+    /* Outlined accent button */
+    .btn-out { font-family:var(--fm); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--or); border:1px solid var(--or3); padding:6px 14px; border-radius:50px; transition:background .15s,color .15s; display:inline-block; }
+    .btn-out:hover { background:var(--or); color:#fff; border-color:var(--or); }
+    /* White outlined (for dark sections) */
+    .btn-wt { font-family:var(--fm); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.25); padding:6px 14px; border-radius:50px; transition:background .15s,color .15s; display:inline-block; }
+    .btn-wt:hover { background:rgba(255,255,255,.12); color:#fff; }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-    .hamburger span { display:block; width:20px; height:1px; background:rgba(255,255,255,0.6); }
+    .hamburger span { display:block; width:20px; height:1px; background:rgba(255,255,255,.6); }
 
     /* ─── PAGES ─── */
     .page { display:none; padding-top:60px; min-height:100vh; animation:fi .22s ease; }
     .page.active { display:block; }
     @keyframes fi { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:none} }
 
-    /* ─── SHARED section header ─── */
+    /* ─── SHARED ─── */
     .s-hd { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 2.5rem; border-bottom:1px solid var(--br); }
     .s-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(28px,4vw,48px); letter-spacing:-0.02em; line-height:1; }
 
     /* ═══ HOME ═══ */
 
-    /* HERO: brand | club photo | newsletter */
+    /* HERO */
     .hero { display:grid; grid-template-columns:1fr 260px 1fr; border-bottom:1px solid var(--br); min-height:480px; }
-    .hero-l { padding:3.5rem 2.5rem; border-right:1px solid var(--br); display:flex; flex-direction:column; gap:1.25rem; }
+    .hero-l { padding:3.5rem 2.5rem; border-right:1px solid var(--br); display:flex; flex-direction:column; gap:1rem; }
     .hero-eye { font-family:var(--fm); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tx3); }
     .hero-name { font-family:var(--fa); font-weight:700; font-size:clamp(56px,9vw,130px); letter-spacing:-0.05em; line-height:0.88; }
-    .hero-stmt { font-size:14px; font-weight:300; line-height:1.8; color:var(--tx2); max-width:380px; }
+    /* DARKER hero text — was var(--tx2)/#777, now #333 for readability */
+    .hero-stmt { font-size:14px; font-weight:300; line-height:1.8; color:#333; max-width:380px; }
     .hero-stmt strong { color:var(--tx); font-weight:500; }
-    .hero-tags { display:flex; flex-wrap:wrap; gap:6px; }
+    /* Chinese translation — shown below English with clear separation */
+    .hero-zh { font-size:13px; font-weight:300; line-height:1.8; color:#555; max-width:380px; margin-top:.75rem; padding-top:.75rem; border-top:1px solid var(--br); }
+    .hero-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:.25rem; }
     .h-tag { font-family:var(--fm); font-size:9px; letter-spacing:0.07em; text-transform:uppercase; border:1px solid var(--br); padding:4px 12px; border-radius:50px; color:var(--tx2); }
     .hero-loc { font-family:var(--fm); font-size:10px; color:var(--tx3); }
     .hero-mid { position:relative; overflow:hidden; border-right:1px solid var(--br); }
     .hero-mid img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
-    /* Substack right */
     .hero-r { padding:3.5rem 2.5rem; background:var(--dk); color:#fff; display:flex; flex-direction:column; justify-content:space-between; }
     .nl-tag  { font-family:var(--fm); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:1rem; }
     .nl-ttl  { font-family:var(--fa); font-weight:700; font-size:clamp(22px,2.8vw,36px); letter-spacing:-0.02em; line-height:1.05; color:#fff; margin-bottom:.75rem; }
@@ -116,24 +99,11 @@
     .yt-label-l { display:flex; align-items:center; gap:12px; }
     .yt-label-tx { font-family:var(--fa); font-weight:700; font-size:14px; color:rgba(255,255,255,.8); }
 
-    /* MIXCLOUD SECTION */
+    /* MIXCLOUD */
     .mc-sec { border-bottom:1px solid var(--br); }
-
-    /* Live profile widget strip */
     .mc-widget-strip { border-bottom:1px solid var(--br); }
-
-    /* 4-col grid for 8 smaller cards */
     .mc-grid { display:grid; grid-template-columns:repeat(4,1fr); }
-    .mc-card {
-      border-right:1px solid rgba(255,255,255,.08);
-      border-bottom:1px solid var(--br);
-      background:#111; color:#fff;
-      padding:1.75rem 1.5rem;
-      cursor:pointer; position:relative;
-      min-height:200px;
-      display:flex; flex-direction:column; justify-content:space-between;
-      transition:background .2s; overflow:hidden;
-    }
+    .mc-card { border-right:1px solid rgba(255,255,255,.08); border-bottom:1px solid var(--br); background:#111; color:#fff; padding:1.75rem 1.5rem; cursor:pointer; position:relative; min-height:200px; display:flex; flex-direction:column; justify-content:space-between; transition:background .2s; overflow:hidden; }
     .mc-card:nth-child(4n) { border-right:none; }
     .mc-card:hover, .mc-card.playing { background:#1c1c1c; }
     .mc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--or); opacity:0; transition:opacity .2s; }
@@ -146,38 +116,39 @@
     .mc-bot { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:8px; }
     .mc-tags { display:flex; flex-wrap:wrap; gap:4px; }
     .mc-tag  { font-family:var(--fb); font-weight:500; font-size:8px; letter-spacing:0.06em; text-transform:uppercase; border:1px solid rgba(255,255,255,.12); padding:3px 8px; border-radius:50px; color:rgba(255,255,255,.45); }
-    .mc-card:hover .mc-tag, .mc-card.playing .mc-tag { border-color:rgba(255,255,255,.22); color:rgba(255,255,255,.7); }
+    .mc-card:hover .mc-tag, .mc-card.playing .mc-tag { border-color:rgba(255,255,255,.25); color:rgba(255,255,255,.7); }
     .mc-play-btn { font-family:var(--fb); font-weight:700; font-size:10px; letter-spacing:0.07em; text-transform:uppercase; color:var(--or); border:1px solid var(--or3); padding:5px 12px; border-radius:50px; transition:background .15s,color .15s; flex-shrink:0; white-space:nowrap; }
     .mc-card:hover .mc-play-btn, .mc-card.playing .mc-play-btn { background:var(--or); color:#fff; border-color:var(--or); }
     .mc-player { display:none; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.08); }
     .mc-card.playing .mc-player { display:block; }
-    /* Loading skeleton */
     .mc-skel { animation:pulse 1.5s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.7} }
     .mc-skel .mc-artist { background:rgba(255,255,255,.12); color:transparent; border-radius:3px; }
     .mc-skel .mc-show   { background:rgba(255,255,255,.08); color:transparent; border-radius:3px; width:80%; }
     .mc-skel .mc-src-badge { background:rgba(255,255,255,.08); color:transparent; }
-    /* Profile browser strip */
-    .mc-profile { border-top:1px solid var(--br); }
 
-    /* PLATFORMS */
-    .plat-sec { border-bottom:1px solid var(--br); }
-    .plat-grid { display:grid; grid-template-columns:repeat(3,1fr); border-left:1px solid var(--br); }
-    .plat-card { display:flex; flex-direction:column; justify-content:space-between; padding:2rem 2.5rem; border-right:1px solid var(--br); border-bottom:1px solid var(--br); min-height:130px; transition:background .15s; cursor:pointer; }
-    .plat-card:hover { background:var(--bg2); }
-    .plat-nm  { font-family:var(--fa); font-weight:700; font-size:15px; color:var(--tx); margin-bottom:5px; }
-    .plat-ds  { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--tx2); }
-    .plat-ar  { font-size:14px; color:var(--tx3); align-self:flex-end; transition:color .15s,transform .15s; }
+    /* PLATFORMS — BLACK tiles */
+    .plat-sec { background:#111; }
+    .plat-hd { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 2.5rem; border-bottom:1px solid rgba(255,255,255,.1); }
+    .plat-hd-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(28px,4vw,48px); letter-spacing:-0.02em; line-height:1; color:#fff; }
+    .plat-grid { display:grid; grid-template-columns:repeat(3,1fr); border-left:1px solid rgba(255,255,255,.1); }
+    .plat-card { display:flex; flex-direction:column; justify-content:space-between; padding:2rem 2.5rem; border-right:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.1); min-height:130px; transition:background .15s; cursor:pointer; background:#111; }
+    .plat-card:hover { background:#1c1c1c; }
+    .plat-nm  { font-family:var(--fb); font-weight:700; font-size:17px; letter-spacing:0.04em; text-transform:uppercase; color:#fff; margin-bottom:6px; }
+    .plat-ds  { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.4); }
+    .plat-ar  { font-size:14px; color:rgba(255,255,255,.25); align-self:flex-end; transition:color .15s,transform .15s; }
     .plat-card:hover .plat-ar { color:var(--or); transform:translate(2px,-2px); }
 
     /* ═══ ABOUT ═══ */
     .about-content { display:grid; grid-template-columns:1fr 420px; border-bottom:1px solid var(--br); }
     .ab-text { padding:5rem 2.5rem; border-right:1px solid var(--br); }
     .pg-ttl  { font-family:var(--fa); font-weight:700; font-size:clamp(44px,6vw,72px); letter-spacing:-0.04em; line-height:0.9; color:var(--tx); margin-bottom:3rem; }
-    .body-tx p { font-size:15px; font-weight:300; line-height:1.9; color:var(--tx2); margin-bottom:1.4rem; }
+    .body-tx p { font-size:15px; font-weight:300; line-height:1.9; color:#444; margin-bottom:1.4rem; }
     .body-tx strong { color:var(--tx); font-weight:500; }
     .body-tx a { color:var(--tx); text-decoration:underline; text-decoration-color:var(--br); text-underline-offset:3px; transition:text-decoration-color .15s; }
     .body-tx a:hover { text-decoration-color:var(--or); }
+    /* Chinese about text */
+    .body-zh { font-size:14px; font-weight:300; line-height:1.9; color:#555; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--br); }
     .ab-photo { position:relative; overflow:hidden; min-height:400px; }
     .ab-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
 
@@ -194,37 +165,51 @@
     .ev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
     .ev-card { display:flex; flex-direction:column; cursor:pointer; transition:opacity .2s; }
     .ev-card:hover { opacity:.9; }
-    .ev-card-img { aspect-ratio:3/4; overflow:hidden; background:var(--bg3); margin-bottom:.75rem; position:relative; }
+    .ev-card-img { aspect-ratio:3/4; overflow:hidden; background:var(--bg3); margin-bottom:.75rem; }
     .ev-card-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
     .ev-card:hover .ev-card-img img { transform:scale(1.03); }
     .ev-card-date  { font-family:var(--fm); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--tx3); margin-bottom:5px; }
-    .ev-card-name  { font-family:var(--fa); font-weight:700; font-size:13px; letter-spacing:-0.01em; color:var(--tx); margin-bottom:4px; line-height:1.35; }
+    .ev-card-name  { font-family:var(--fa); font-weight:700; font-size:13px; color:var(--tx); margin-bottom:4px; line-height:1.35; }
     .ev-card-venue { font-family:var(--fm); font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--tx2); margin-bottom:8px; }
     .ev-tags { display:flex; flex-wrap:wrap; gap:5px; }
     .ev-tag  { font-family:var(--fm); font-size:8px; letter-spacing:0.07em; text-transform:uppercase; border:1px solid var(--br); padding:3px 8px; border-radius:50px; color:var(--tx2); }
     .ev-card-ra { font-family:var(--fm); font-size:8px; letter-spacing:0.07em; text-transform:uppercase; color:var(--or); margin-top:6px; display:block; }
 
-    /* ═══ ARCHIVE ═══ */
-    .arc-wrap  { padding-top:5rem; }
-    .arc-lbl   { font-family:var(--fm); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tx3); padding:0 2.5rem 1.25rem; }
-    .arc-grid  { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--br); border-left:1px solid var(--br); }
-    .arc-card  { border-right:1px solid var(--br); border-bottom:1px solid var(--br); padding:2rem 2.5rem; cursor:pointer; transition:background .15s; position:relative; }
-    .arc-card:hover { background:var(--bg2); }
-    .arc-dt    { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--tx3); margin-bottom:10px; }
-    .arc-nm    { font-family:var(--fa); font-weight:700; font-size:14px; color:var(--tx); margin-bottom:8px; line-height:1.35; padding-right:22px; }
-    .arc-mt    { font-family:var(--fm); font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--tx2); }
-    .arc-card::after { content:'↗'; position:absolute; top:2rem; right:2rem; font-size:12px; color:var(--tx3); transition:color .15s; }
-    .arc-card:hover::after { color:var(--or); }
-    .arc-player { margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--br); }
-    .arc-foot  { display:flex; align-items:center; justify-content:space-between; padding:1.5rem 2.5rem; border-top:1px solid var(--br); font-family:var(--fm); font-size:10px; color:var(--tx2); letter-spacing:0.06em; text-transform:uppercase; }
+    /* ═══ APPEARANCES ═══ */
+    .app-wrap { padding:5rem 2.5rem 4rem; }
+    .app-intro { max-width:580px; margin-bottom:3rem; }
+    .app-intro p { font-size:15px; font-weight:300; line-height:1.8; color:#555; }
+    .app-pl { margin-bottom:3.5rem; }
+    .app-pl-hd { display:flex; align-items:center; justify-content:space-between; padding-bottom:1rem; border-bottom:1px solid var(--br); margin-bottom:1.5rem; flex-wrap:wrap; gap:.75rem; }
+    .app-pl-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(20px,2.5vw,28px); letter-spacing:-0.02em; color:var(--tx); }
+    .app-pl-sub { font-family:var(--fm); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--tx2); margin-top:4px; }
+    .app-embed { background:#0f0f0f; }
+    .app-yt { position:relative; width:100%; padding-bottom:56.25%; }
+    .app-yt iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+    .app-yt-foot { display:flex; align-items:center; justify-content:space-between; padding:.875rem 1.5rem; background:#1a1a1a; }
+    .app-yt-badge { font-family:var(--fb); font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--or); }
 
-    /* FOOTER */
-    footer { margin-top:5rem; padding:1.75rem 2.5rem; border-top:1px solid var(--br); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
-    .ft-lg  { font-family:var(--fa); font-weight:700; font-size:13px; color:var(--tx2); }
+    /* ═══ ARCHIVE — photo collage ═══ */
+    .arc-pg { min-height:100vh; }
+    .arc-hdr { display:flex; align-items:flex-end; justify-content:space-between; padding:3.5rem 2.5rem 2rem; border-bottom:1px solid var(--br); flex-wrap:wrap; gap:1rem; }
+    .arc-hdr-l .arc-tag { font-family:var(--fm); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tx3); margin-bottom:.75rem; }
+    .arc-hdr-l .arc-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(44px,6vw,80px); letter-spacing:-0.04em; line-height:0.9; color:var(--tx); }
+    .arc-sub { font-family:var(--fm); font-size:10px; letter-spacing:0.07em; text-transform:uppercase; color:var(--tx2); margin-top:.75rem; }
+    /* CSS masonry collage — 3 columns, tight gap */
+    .arc-collage { columns:3; column-gap:3px; padding:3px; }
+    .arc-col-item { break-inside:avoid; margin-bottom:3px; display:block; overflow:hidden; position:relative; }
+    .arc-col-item img { width:100%; height:auto; display:block; transition:transform .4s ease, filter .3s ease; filter:brightness(0.95); }
+    .arc-col-item:hover img { transform:scale(1.02); filter:brightness(1); }
+    /* Mix archive link strip */
+    .arc-mix-link { display:flex; align-items:center; justify-content:space-between; padding:1.5rem 2.5rem; border-top:1px solid var(--br); font-family:var(--fm); font-size:10px; color:var(--tx2); letter-spacing:0.06em; text-transform:uppercase; }
+
+    /* FOOTER — BLACK matching nav */
+    footer { padding:1.75rem 2.5rem; background:#111; border-top:1px solid rgba(255,255,255,.08); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    .ft-lg  { font-family:var(--fa); font-weight:700; font-size:14px; color:rgba(255,255,255,.5); }
     .ft-lks { display:flex; gap:1.75rem; flex-wrap:wrap; }
-    .ft-lks a { font-family:var(--fm); font-size:9px; letter-spacing:0.09em; text-transform:uppercase; color:var(--tx2); transition:color .15s; }
-    .ft-lks a:hover { color:var(--tx); }
-    .ft-cp  { font-family:var(--fm); font-size:9px; letter-spacing:0.04em; color:var(--tx3); }
+    .ft-lks a { font-family:var(--fb); font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.4); transition:color .15s; }
+    .ft-lks a:hover { color:#fff; }
+    .ft-cp  { font-family:var(--fm); font-size:9px; letter-spacing:0.04em; color:rgba(255,255,255,.25); }
 
     /* MOBILE NAV */
     .mob-nav { display:none; position:fixed; top:60px; left:0; right:0; background:#111; border-bottom:1px solid rgba(255,255,255,.1); padding:1.5rem 2.5rem; z-index:99; flex-direction:column; gap:1.25rem; }
@@ -240,42 +225,44 @@
       .ev-grid { grid-template-columns:repeat(2,1fr); }
       .about-content { grid-template-columns:1fr; }
       .ab-photo { min-height:320px; max-height:480px; border-top:1px solid var(--br); }
+      .arc-collage { columns:2; }
     }
     @media (max-width:800px) {
       .hero { grid-template-columns:1fr; }
       .hero-l { border-right:none; border-bottom:1px solid var(--br); }
       .mc-grid { grid-template-columns:repeat(2,1fr); }
       .plat-grid { grid-template-columns:repeat(2,1fr); }
-      .arc-grid  { grid-template-columns:1fr; }
       nav .nav-links { display:none; }
       .hamburger { display:flex; }
-      .hero-l, .hero-r { padding:2.5rem 1.5rem; }
-      .s-hd, .ev-wrap, .ab-text { padding-left:1.5rem; padding-right:1.5rem; }
+      .hero-l,.hero-r { padding:2.5rem 1.5rem; }
+      .s-hd,.plat-hd,.ev-wrap,.ab-text,.app-wrap,.arc-hdr { padding-left:1.5rem; padding-right:1.5rem; }
       .mc-card { padding:1.5rem 1.25rem; min-height:170px; }
       .plat-card { padding:1.5rem; }
-      footer, .arc-foot { padding-left:1.5rem; padding-right:1.5rem; }
+      footer,.arc-mix-link { padding-left:1.5rem; padding-right:1.5rem; }
       .ra-blk { padding:1.5rem; }
       .ev-grid { grid-template-columns:1fr; gap:2rem; }
     }
     @media (max-width:560px) {
       .plat-grid { grid-template-columns:1fr; }
       .mc-grid   { grid-template-columns:1fr; }
+      .arc-collage { columns:1; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV — black bar -->
+<!-- ─── NAV ─── -->
 <nav>
   <div class="logo-wrap" onclick="show('home')">
     <img class="logo-img" src="https://thumbnailer.mixcloud.com/unsafe/120x120/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649" alt="Yee." onerror="this.style.display='none'">
     <span class="logo-tx">Yee.</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#" id="n-home"    onclick="show('home');return false"    class="active">Home</a></li>
-    <li><a href="#" id="n-about"   onclick="show('about');return false"   >About</a></li>
-    <li><a href="#" id="n-events"  onclick="show('events');return false"  >Events</a></li>
-    <li><a href="#" id="n-archive" onclick="show('archive');return false" >Archive</a></li>
+    <li><a href="#" id="n-home"        onclick="show('home');return false"        class="active">Home</a></li>
+    <li><a href="#" id="n-about"       onclick="show('about');return false"       >About</a></li>
+    <li><a href="#" id="n-events"      onclick="show('events');return false"      >Events</a></li>
+    <li><a href="#" id="n-appearances" onclick="show('appearances');return false" >Appearances</a></li>
+    <li><a href="#" id="n-archive"     onclick="show('archive');return false"     >Archive</a></li>
   </ul>
   <div class="nav-r">
     <a class="btn-or" href="https://yeehk.substack.com/" target="_blank" rel="noopener">Newsletter ↗</a>
@@ -284,12 +271,12 @@
 </nav>
 
 <div class="mob-nav" id="mob-nav">
-  <a href="#" id="mn-home"    onclick="show('home');return false"   >Home</a>
-  <a href="#" id="mn-about"   onclick="show('about');return false"  >About</a>
-  <a href="#" id="mn-events"  onclick="show('events');return false" >Events</a>
-  <a href="#" id="mn-archive" onclick="show('archive');return false">Archive</a>
+  <a href="#" id="mn-home"        onclick="show('home');return false"        >Home</a>
+  <a href="#" id="mn-about"       onclick="show('about');return false"       >About</a>
+  <a href="#" id="mn-events"      onclick="show('events');return false"      >Events</a>
+  <a href="#" id="mn-appearances" onclick="show('appearances');return false" >Appearances</a>
+  <a href="#" id="mn-archive"     onclick="show('archive');return false"     >Archive</a>
   <a href="https://yeehk.substack.com/" target="_blank" style="color:var(--or);">Newsletter ↗</a>
-  <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram @yee.___hk</a>
 </div>
 
 
@@ -305,17 +292,20 @@
         <strong>A music and community platform spotlighting the sounds of the underground from Hong Kong to the world.</strong>
         We curate events, spotlight talent, and create spaces where culture, and connection thrive
       </p>
-      <p class="hero-stmt" style="color:var(--tx3);font-size:13px;">音樂社群</p>
+      <!-- Chinese translation — separated by border for clarity -->
+      <p class="hero-zh">
+        Yee. 是根植香港的音樂及社群平台，致力將地下音樂推向世界。我們策辦活動、發掘本地人才，為音樂、文化與連結創造空間。一齊向前，推動文化。
+      </p>
       <div class="hero-tags">
         <span class="h-tag">electronic</span>
         <span class="h-tag">bass</span>
         <span class="h-tag">techno</span>
         <span class="h-tag">140</span>
       </div>
-      <p class="hero-loc">📍 HK +852 to the world</p>
+      <p class="hero-loc">📍 HK +852 · 音樂社群</p>
     </div>
     <div class="hero-mid">
-      <img src="./yee-club.jpg" alt="Yee. community — underground Hong Kong">
+      <img src="./yee-club.jpg" alt="Yee. community">
     </div>
     <div class="hero-r">
       <p class="nl-tag">Newsletter</p>
@@ -329,11 +319,11 @@
     </div>
   </div>
 
-  <!-- YOUTUBE -->
+  <!-- YOUTUBE — Recovery Sessions -->
   <div class="yt-sec">
     <div class="s-hd">
       <h2 class="s-ttl">Watch</h2>
-      <a class="btn-or-out" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube @yee._hk ↗</a>
+      <a class="btn-out" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube @yee._hk ↗</a>
     </div>
     <div class="yt-inner">
       <div class="yt-embed">
@@ -342,46 +332,35 @@
       <div class="yt-label">
         <div class="yt-label-l">
           <span class="yt-badge">Recovery Sessions</span>
-          <span class="yt-label-tx">Yee. × Listening Room — Recovery Sessions music platform</span>
+          <span class="yt-label-tx">Yee. × Listening Room — monthly music platform</span>
         </div>
-        <a class="btn-or-out" href="https://www.youtube.com/playlist?list=PL1MPlRp510yfPyvg-Yqm5mCHUJfY09D9j" target="_blank" rel="noopener" style="flex-shrink:0;">Full playlist ↗</a>
+        <a class="btn-wt" href="https://www.youtube.com/playlist?list=PL1MPlRp510yfPyvg-Yqm5mCHUJfY09D9j" target="_blank" rel="noopener">Full playlist ↗</a>
       </div>
     </div>
   </div>
 
-  <!-- MIXCLOUD -->
+  <!-- MIXCLOUD — profile widget + 8 live API cards -->
   <div class="mc-sec">
     <div class="s-hd">
-      <!-- Section title changed as requested -->
-      <h2 class="s-ttl">Yee. presents&nbsp;<span style="color:var(--tx3);">___</span>&nbsp;on HKCR</h2>
-      <a class="btn-or-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">All 29 shows ↗</a>
+      <h2 class="s-ttl">Yee. presents <span style="color:var(--tx3);">___</span> on HKCR</h2>
+      <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">All 29 shows ↗</a>
     </div>
-
-    <!-- Live profile widget — browse all shows -->
+    <!-- Live browseable profile widget -->
     <div class="mc-widget-strip">
       <iframe width="100%" height="180" frameborder="0" allow="autoplay"
         src="https://www.mixcloud.com/widget/iframe/?hide_cover=0&mini=0&dark=0&feed=%2Fyeehk%2F"
-        loading="lazy">
-      </iframe>
+        loading="lazy"></iframe>
     </div>
-
-    <!-- 8 show cards — fetched live from Mixcloud API -->
-    <div class="mc-grid" id="mc-grid">
-      <!-- JS populates these; show 8 skeletons while loading -->
-    </div>
-
-    <!-- Fallback mini strip -->
-    <div class="mc-profile">
-      <iframe width="100%" height="60" frameborder="0" allow="autoplay"
-        src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&dark=0&feed=%2Fyeehk%2F"
-        loading="lazy">
-      </iframe>
-    </div>
+    <!-- 8 cards — populated by Mixcloud API in JS; falls back to 4 hardcoded -->
+    <div class="mc-grid" id="mc-grid"></div>
+    <!-- Mini strip REMOVED as requested -->
   </div>
 
-  <!-- PLATFORMS -->
+  <!-- FIND US ON — black tiles -->
   <div class="plat-sec">
-    <div class="s-hd"><h2 class="s-ttl">Find us on</h2></div>
+    <div class="plat-hd">
+      <h2 class="plat-hd-ttl">Find us on</h2>
+    </div>
     <div class="plat-grid">
       <a class="plat-card" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener"><div><p class="plat-nm">Mixcloud</p><p class="plat-ds">Mixes &amp; DJ Sets — 29 shows</p></div><span class="plat-ar">↗</span></a>
       <a class="plat-card" href="https://yeehk.substack.com/" target="_blank" rel="noopener"><div><p class="plat-nm">Substack</p><p class="plat-ds">Newsletter &amp; Writing</p></div><span class="plat-ar">↗</span></a>
@@ -414,11 +393,14 @@
       <h2 class="pg-ttl">About<br>Yee.</h2>
       <div class="body-tx">
         <p><strong>Yee. is a music and community platform spotlighting the sounds of the underground from Hong Kong to the world.</strong></p>
-        <p>We curate high-energy events for the city, spotlight local talent, and create spaces where beats, culture, and connection thrive. Yee. is all about pushing the culture forward — together.</p>
-        <p>Through exclusive mixes on <strong>Mixcloud</strong>, broadcasts on <strong>HKCR</strong>, video content on <strong>YouTube</strong>, in-depth writing on <strong>Substack</strong>, and events on <strong>Resident Advisor</strong>, Yee. is building a long-form record of Hong Kong's electronic music culture — the sounds, the spaces, and the people who make it.</p>
-        <p style="color:var(--tx3);">音樂社群 · electronic | bass | techno | 140 · 📍 HK +852 to the world</p>
+        <p>We curate, share and celebrate the underground — from warehouse parties to listening sessions, to DJs who treat every set as a conversation with the room.</p>
+        <p>Through exclusive mixes on <strong>Mixcloud</strong>, broadcasts on <strong>HKCR</strong>, video content on <strong>YouTube</strong>, in-depth writing on <strong>Substack</strong>, and events on <strong>Resident Advisor</strong>, Yee. is building a record of Hong Kong's electronic music culture — the sounds, the spaces, and the people who make it.</p>
         <p>Follow on <a href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">Instagram @yee.___hk</a> · Subscribe on <a href="https://yeehk.substack.com/" target="_blank" rel="noopener">Substack</a> · Get in touch at <a href="mailto:yee_hk@outlook.com">yee_hk@outlook.com</a></p>
       </div>
+      <!-- Chinese summary — separated clearly from English -->
+      <p class="body-zh">
+        Yee. 是以香港為根的音樂社群平台，記錄並慶祝地下音樂文化。從工廈派對到深夜聆聽，從硬件發燒友到以每個 set 與人對話的 DJ——我們都在乎。透過 Mixcloud、HKCR、YouTube、Substack 及 RA，Yee. 正為香港電子音樂文化建立一套長期紀錄——那些聲音、空間，以及成就一切的人。
+      </p>
     </div>
     <div class="ab-photo">
       <img src="./yee-street.jpg" alt="Yee. community — Hong Kong underground">
@@ -442,14 +424,14 @@
   <div class="ev-wrap">
     <div class="ev-hd">
       <h2 class="pg-ttl">Events</h2>
-      <a class="btn-or-out" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">Resident Advisor ↗</a>
+      <a class="btn-out" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">Resident Advisor ↗</a>
     </div>
     <div class="ra-blk">
       <div class="ra-l">
         <p class="ra-lg">Upcoming Events</p>
-        <p class="ra-tx"><strong>All Yee. events are listed on Resident Advisor.</strong> Follow our profile to be notified when new events are announced — RA lets you set alerts and follow promoters directly.</p>
+        <p class="ra-tx"><strong>Most Yee. events are listed on Resident Advisor and IG.</strong> Follow our profile to be notified when new events are announced — RA lets you set alerts and follow promoters directly.</p>
       </div>
-      <a class="btn-or-out" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">Follow on RA ↗</a>
+      <a class="btn-out" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">Follow on RA ↗</a>
     </div>
     <p class="ev-none">No upcoming events announced — follow on RA to be first to know.</p>
     <h3 class="past-hd">Past Events</h3>
@@ -474,7 +456,7 @@
         <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vNDAzZDg5MDlkZTU2YTZiZTk2M2IyNjA1MTNhYjIwZDE5MmU3ZDVkMy5qcGc=" alt="7/11" loading="lazy"></div>
         <p class="ev-card-date">Fri 7 Nov 2025 · 21:30</p>
         <p class="ev-card-name">RowdyRuff Recordz × Yee.: 7/11</p>
-        <p class="ev-card-venue">Soho House HK, Sheung Wan</p>
+        <p class="ev-card-venue">Soho House HK</p>
         <div class="ev-tags"><span class="ev-tag">Bass</span><span class="ev-tag">Garage</span><span class="ev-tag">Breaks</span></div>
         <span class="ev-card-ra">View on RA ↗</span>
       </a>
@@ -508,37 +490,119 @@
 </div>
 
 
-<!-- ════ ARCHIVE ════ -->
-<div id="pg-archive" class="page">
-  <div class="arc-wrap">
-    <p class="arc-lbl">Mix Archive — click any card to play</p>
-    <div class="arc-grid">
-      <div class="arc-card" onclick="toggleArc(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-tfeelscary-01052026-hkcr%2F">
-        <p class="arc-dt">May 2026</p>
-        <p class="arc-nm">Yee. presents TFEELSCARY — HKCR</p>
-        <p class="arc-mt">Mixcloud · 1:01:04 · techno, detroit, industrial</p>
+<!-- ════ APPEARANCES (new) ════ -->
+<div id="pg-appearances" class="page">
+  <div class="app-wrap">
+    <div class="ev-hd">
+      <h2 class="pg-ttl">Appearances</h2>
+      <a class="btn-out" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube @yee._hk ↗</a>
+    </div>
+    <div class="app-intro">
+      <p>Yee. in the wild — live sets, guest appearances, and recorded sessions from around Hong Kong and beyond.</p>
+    </div>
+
+    <!-- Playlist 1 -->
+    <div class="app-pl">
+      <div class="app-pl-hd">
+        <div>
+          <h3 class="app-pl-ttl">Club Sets</h3>
+          <p class="app-pl-sub">Yee. × S2 — live electronic music sessions</p>
+        </div>
+        <a class="btn-out" href="https://youtube.com/playlist?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI" target="_blank" rel="noopener">Full playlist ↗</a>
       </div>
-      <div class="arc-card" onclick="toggleArc(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-tuesday-02042026-hkcr%2F">
-        <p class="arc-dt">Apr 2026</p>
-        <p class="arc-nm">Yee. presents Tuesday — HKCR</p>
-        <p class="arc-mt">Mixcloud · 58:33 · bassline, uk bass, garage</p>
-      </div>
-      <div class="arc-card" onclick="toggleArc(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-ezzrei-05032026-hkcr%2F">
-        <p class="arc-dt">Mar 2026</p>
-        <p class="arc-nm">Yee. presents Ezzrei — HKCR</p>
-        <p class="arc-mt">Mixcloud · 1:01:04 · electronic, bass, jungle</p>
-      </div>
-      <div class="arc-card" onclick="toggleArc(this)" data-src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=0&feed=%2Fyeehk%2Fyee-presents-oscar-days-05022026-hkcr%2F">
-        <p class="arc-dt">Feb 2026</p>
-        <p class="arc-nm">Yee. presents Oscar Days — HKCR</p>
-        <p class="arc-mt">Mixcloud · 1:01:04 · electronic, techno</p>
+      <div class="app-embed">
+        <div class="app-yt">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI&rel=0&modestbranding=1&color=white"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="app-yt-foot">
+          <span class="app-yt-badge">Playlist 1</span>
+          <a class="btn-wt" href="https://youtube.com/playlist?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
       </div>
     </div>
-    <div class="arc-foot">
-      <span>Full archive — 29 shows on Mixcloud</span>
-      <a class="btn-or-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Browse all ↗</a>
+
+    <!-- Playlist 2 -->
+    <div class="app-pl">
+      <div class="app-pl-hd">
+        <div>
+          <h3 class="app-pl-ttl">Yee. Sets &amp; Sessions</h3>
+          <p class="app-pl-sub">Performances and recorded appearances</p>
+        </div>
+        <a class="btn-out" href="https://youtube.com/playlist?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS" target="_blank" rel="noopener">Full playlist ↗</a>
+      </div>
+      <div class="app-embed">
+        <div class="app-yt">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS&rel=0&modestbranding=1&color=white"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="app-yt-foot">
+          <span class="app-yt-badge">Playlist 2</span>
+          <a class="btn-wt" href="https://youtube.com/playlist?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
     </div>
   </div>
+  <footer>
+    <span class="ft-lg">Yee.</span>
+    <div class="ft-lks">
+      <a href="https://www.youtube.com/@yee._hk" target="_blank">YouTube</a>
+      <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
+      <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
+      <a href="mailto:yee_hk@outlook.com">Contact</a>
+    </div>
+    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
+  </footer>
+</div>
+
+
+<!-- ════ ARCHIVE — photo collage ════ -->
+<div id="pg-archive" class="page arc-pg">
+  <div class="arc-hdr">
+    <div class="arc-hdr-l">
+      <p class="arc-tag">Yee. — Visual Record</p>
+      <h2 class="arc-ttl">Archive</h2>
+      <p class="arc-sub">Moments from events, spaces, and the people who make it.</p>
+    </div>
+    <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Mix archive on Mixcloud ↗</a>
+  </div>
+
+  <!--
+    PHOTO COLLAGE — all images from GitHub repo (same folder as index.html)
+    Images: exact filenames from repository, case-sensitive.
+    Note: IMG_2542.HEIC may not load in Chrome/Firefox; onerror handles gracefully.
+  -->
+  <div class="arc-collage">
+    <div class="arc-col-item"><img src="./6b05311d-2571-4749-b0d5-6e93f9a38b6b.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./C524E02A-B3DA-4E51-AD23-59138ADA5290.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./83fb0120-9bed-41dd-9a57-2df0623cbfaf.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./39D3CC10-DC33-444D-9279-78CE8C9E0941.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./017B8444-8D62-44FF-B6E4-1677A1605500.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./72e893cd-afee-4ab2-bbe4-78ed0d4cdda9.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./2d8166ee-6753-4ebd-ba4f-136120ed5b81.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./e9cfdb40-9023-4ca6-92f7-827ac9cd9488.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./40a3daa3-15bf-4dc3-8bc6-a652c40690f2.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./348AAD70-D5E1-4B4F-9203-30A4E1E7E094.jpg"   alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./c2391d32-78dc-45e5-8b72-d7707fce10ea.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./6357e989-ca0c-4b4e-a2df-179e4af83fec.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./IMG_0975.JPG"                                 alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./IMG_9415.PNG"                                 alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./IMG_2542.HEIC"                                alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./yee-street.jpg"                               alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./yee-club.jpg"                                 alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+  </div>
+
+  <div class="arc-mix-link">
+    <span>Mix archive — 29 shows on Mixcloud</span>
+    <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Browse all mixes ↗</a>
+  </div>
+
   <footer>
     <span class="ft-lg">Yee.</span>
     <div class="ft-lks">
@@ -552,164 +616,128 @@
 
 
 <script>
-  /* ── Page navigation ── */
-  const PAGES=['home','about','events','archive'];
-  function show(id){
-    PAGES.forEach(p=>{
-      document.getElementById('pg-'+p).classList.toggle('active',p===id);
-      ['n-','mn-'].forEach(x=>{const e=document.getElementById(x+p);if(e)e.classList.toggle('active',p===id);});
+  /* ── Navigation ── */
+  const PAGES = ['home','about','events','appearances','archive'];
+
+  function show(id) {
+    PAGES.forEach(p => {
+      document.getElementById('pg-'+p).classList.toggle('active', p===id);
+      ['n-','mn-'].forEach(x => {
+        const el = document.getElementById(x+p);
+        if (el) el.classList.toggle('active', p===id);
+      });
     });
-    window.scrollTo({top:0,behavior:'instant'});
+    window.scrollTo({top:0, behavior:'instant'});
     document.getElementById('mob-nav').classList.remove('open');
   }
-  function toggleMob(){document.getElementById('mob-nav').classList.toggle('open');}
 
-  /* ── Newsletter ── */
-  function nlSub(){
-    const v=document.getElementById('nl-email').value.trim();
-    if(!v||!v.includes('@')){document.getElementById('nl-email').focus();return;}
-    window.open('https://yeehk.substack.com/?email='+encodeURIComponent(v),'_blank');
+  function toggleMob() {
+    document.getElementById('mob-nav').classList.toggle('open');
   }
-  document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='nl-email')nlSub();});
 
-  /* ── Mixcloud cards: play/collapse ── */
-  function playMix(card){
-    const isPlaying=card.classList.contains('playing');
-    document.querySelectorAll('.mc-card.playing').forEach(c=>{
+  /* ── Newsletter subscription ── */
+  function nlSub() {
+    const v = document.getElementById('nl-email').value.trim();
+    if (!v || !v.includes('@')) { document.getElementById('nl-email').focus(); return; }
+    window.open('https://yeehk.substack.com/?email=' + encodeURIComponent(v), '_blank');
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.activeElement.id === 'nl-email') nlSub();
+  });
+
+  /* ── Mixcloud card play/collapse ── */
+  function playMix(card) {
+    const isPlaying = card.classList.contains('playing');
+    document.querySelectorAll('.mc-card.playing').forEach(c => {
       c.classList.remove('playing');
-      const f=c.querySelector('.mc-player iframe');
-      if(f)f.src='about:blank';
+      const f = c.querySelector('.mc-player iframe');
+      if (f) f.src = 'about:blank';
     });
-    if(!isPlaying){
+    if (!isPlaying) {
       card.classList.add('playing');
-      const f=card.querySelector('.mc-player iframe');
-      if(f)f.src=card.dataset.src;
+      const f = card.querySelector('.mc-player iframe');
+      if (f) f.src = card.dataset.src;
     }
   }
 
-  /* ── Archive inline player ── */
-  function toggleArc(el){
-    const open=el.classList.contains('expanded');
-    document.querySelectorAll('.arc-card.expanded').forEach(c=>{
-      c.classList.remove('expanded');
-      const p=c.querySelector('.arc-player');if(p)p.remove();
-    });
-    if(!open){
-      el.classList.add('expanded');
-      const p=document.createElement('div');p.className='arc-player';
-      p.innerHTML=`<iframe width="100%" height="60" src="${el.dataset.src}" frameborder="0" allow="autoplay"></iframe>`;
-      el.appendChild(p);
-    }
-  }
-
-  /* ── Mixcloud API: fetch 8 latest shows live ──────────────────────
-     The Mixcloud public API is CORS-enabled and works from the browser.
-     Each item has: key, name, created_time, audio_length, tags[]
-  ───────────────────────────────────────────────────────────────── */
-  (function loadMixcloudShows(){
+  /* ── Mixcloud API — fetch 8 latest shows live in browser ──
+     api.mixcloud.com supports CORS so this works client-side.
+     Falls back to 4 hardcoded shows if API is unreachable.
+  ── */
+  (function loadMixcloudShows() {
     const grid = document.getElementById('mc-grid');
 
-    // Show 8 skeleton cards while loading
-    const SKELETON_COUNT = 8;
-    for(let i=0;i<SKELETON_COUNT;i++){
+    // Show skeletons while loading
+    for (let i = 0; i < 8; i++) {
       const sk = document.createElement('div');
-      sk.className='mc-card mc-skel';
-      sk.innerHTML=`
-        <div class="mc-top"><span class="mc-src-badge">HKCR</span><span class="mc-dur">—:—</span></div>
+      sk.className = 'mc-card mc-skel';
+      sk.innerHTML = `
+        <div class="mc-top"><span class="mc-src-badge">HKCR</span><span class="mc-dur">—</span></div>
         <div><p class="mc-artist">Loading…</p><p class="mc-show">Yee. presents</p></div>
         <div class="mc-bot"><div class="mc-tags"></div><span class="mc-play-btn">▶ Play</span></div>
         <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>`;
       grid.appendChild(sk);
     }
 
-    /* Format seconds → H:MM:SS or M:SS */
-    function fmtDur(s){
-      s=Math.round(s);
-      const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;
-      const mm=String(m).padStart(2,'0'), ss=String(sec).padStart(2,'0');
-      return h ? `${h}:${mm}:${ss}` : `${m}:${ss}`;
+    function fmtDur(s) {
+      s = Math.round(s);
+      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+      return h ? `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`
+               : `${m}:${String(sec).padStart(2,'0')}`;
     }
 
-    /* Parse artist name from title: "Yee. presents ARTIST - date | HKCR" */
-    function parseArtist(name){
-      const m=name.match(/Yee\.\s*presents\s+(.+?)\s*[-–]/i);
-      return m ? m[1].trim() : name.replace(/\|.*$/,'').replace('Yee. presents','').trim();
+    function parseArtist(name) {
+      const m = name.match(/Yee\.\s*presents\s+(.+?)\s*[-–]/i);
+      return m ? m[1].trim() : name.replace(/\|.*$/, '').replace(/Yee\.?\s*presents\s*/i, '').trim();
     }
 
-    /* Month label from ISO date */
-    function dateBadge(iso){
-      try{
-        return new Date(iso).toLocaleString('en-GB',{month:'short',year:'numeric'}).toUpperCase();
-      }catch(e){return '';}
+    function dateBadge(iso) {
+      try { return new Date(iso).toLocaleString('en-GB', {month:'short', year:'numeric'}).toUpperCase(); }
+      catch(e) { return ''; }
     }
 
     fetch('https://api.mixcloud.com/yeehk/cloudcasts/?limit=8&offset=0')
-      .then(r=>{if(!r.ok)throw new Error('API '+r.status);return r.json();})
-      .then(data=>{
-        const items=data.data||[];
-        grid.innerHTML=''; // clear skeletons
-        items.forEach((item,idx)=>{
-          const artist  = parseArtist(item.name);
-          const badge   = dateBadge(item.created_time);
-          const dur     = item.audio_length ? fmtDur(item.audio_length) : '—';
-          const tags    = (item.tags||[]).slice(0,4).map(t=>`<span class="mc-tag">${t.name}</span>`).join('');
-          // Build widget embed URL from key: /yeehk/slug/
-          const feed    = encodeURIComponent(item.key);
-          const widgetSrc = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
-
-          const card=document.createElement('div');
-          card.className='mc-card';
-          card.dataset.src=widgetSrc;
-          card.onclick=function(){playMix(this);};
-          card.innerHTML=`
-            <div class="mc-top">
-              <span class="mc-src-badge">HKCR · ${badge}</span>
-              <span class="mc-dur">${dur}</span>
-            </div>
-            <div>
-              <p class="mc-artist">${artist}</p>
-              <p class="mc-show">Yee. presents</p>
-            </div>
-            <div class="mc-bot">
-              <div class="mc-tags">${tags}</div>
-              <span class="mc-play-btn">▶ Play</span>
-            </div>
-            <div class="mc-player">
-              <iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe>
-            </div>`;
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => {
+        grid.innerHTML = '';
+        (data.data || []).forEach(item => {
+          const artist   = parseArtist(item.name);
+          const badge    = dateBadge(item.created_time);
+          const dur      = item.audio_length ? fmtDur(item.audio_length) : '—';
+          const tags     = (item.tags || []).slice(0, 4).map(t => `<span class="mc-tag">${t.name}</span>`).join('');
+          const feed     = encodeURIComponent(item.key);
+          const src      = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
+          const card     = document.createElement('div');
+          card.className = 'mc-card';
+          card.dataset.src = src;
+          card.onclick   = function() { playMix(this); };
+          card.innerHTML = `
+            <div class="mc-top"><span class="mc-src-badge">HKCR · ${badge}</span><span class="mc-dur">${dur}</span></div>
+            <div><p class="mc-artist">${artist}</p><p class="mc-show">Yee. presents</p></div>
+            <div class="mc-bot"><div class="mc-tags">${tags}</div><span class="mc-play-btn">▶ Play</span></div>
+            <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>`;
           grid.appendChild(card);
         });
-        // If fewer than 8 returned, pad remainder with a link card
-        if(items.length<8){
-          const pad=document.createElement('div');
-          pad.className='mc-card';
-          pad.style.cursor='default';
-          pad.innerHTML=`
-            <div class="mc-top"><span class="mc-src-badge">Mixcloud</span></div>
-            <div><p class="mc-artist" style="font-size:20px;opacity:.4">29 shows</p><p class="mc-show">Browse the full archive</p></div>
-            <div class="mc-bot"><a class="mc-play-btn" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">View all ↗</a></div>`;
-          grid.appendChild(pad);
-        }
       })
-      .catch(()=>{
-        // API failed (e.g. in static preview): fall back to 4 known hard-coded cards
-        grid.innerHTML='';
-        const FALLBACK=[
-          {artist:'TFEELSCARY',date:'May 2026',dur:'1:01:04',tags:['techno','detroit','industrial','minimal'],slug:'yee-presents-tfeelscary-01052026-hkcr'},
-          {artist:'Tuesday',   date:'Apr 2026',dur:'58:33',  tags:['bassline','uk bass','garage'],            slug:'yee-presents-tuesday-02042026-hkcr'},
-          {artist:'Ezzrei',    date:'Mar 2026',dur:'1:01:04',tags:['electronic','bass','jungle','uk bass'],   slug:'yee-presents-ezzrei-05032026-hkcr'},
-          {artist:'Oscar Days',date:'Feb 2026',dur:'1:01:04',tags:['electronic','house','techno'],            slug:'yee-presents-oscar-days-05022026-hkcr'},
-        ];
-        FALLBACK.forEach(s=>{
-          const feed=encodeURIComponent('/yeehk/'+s.slug+'/');
-          const widgetSrc=`https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
-          const tags=s.tags.map(t=>`<span class="mc-tag">${t}</span>`).join('');
-          const card=document.createElement('div');
-          card.className='mc-card'; card.dataset.src=widgetSrc;
-          card.onclick=function(){playMix(this);};
-          card.innerHTML=`
-            <div class="mc-top"><span class="mc-src-badge">HKCR · ${s.date}</span><span class="mc-dur">${s.dur}</span></div>
-            <div><p class="mc-artist">${s.artist}</p><p class="mc-show">Yee. presents</p></div>
+      .catch(() => {
+        // Fallback: 4 confirmed hardcoded shows
+        grid.innerHTML = '';
+        [
+          {a:'TFEELSCARY', d:'May 2026', dur:'1:01:04', t:['techno','detroit','industrial','minimal'], s:'yee-presents-tfeelscary-01052026-hkcr'},
+          {a:'Tuesday',    d:'Apr 2026', dur:'58:33',   t:['bassline','uk bass','garage'],             s:'yee-presents-tuesday-02042026-hkcr'},
+          {a:'Ezzrei',     d:'Mar 2026', dur:'1:01:04', t:['electronic','bass','jungle','uk bass'],    s:'yee-presents-ezzrei-05032026-hkcr'},
+          {a:'Oscar Days', d:'Feb 2026', dur:'1:01:04', t:['electronic','house','techno'],             s:'yee-presents-oscar-days-05022026-hkcr'},
+        ].forEach(x => {
+          const feed = encodeURIComponent('/yeehk/' + x.s + '/');
+          const src  = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
+          const tags = x.t.map(t => `<span class="mc-tag">${t}</span>`).join('');
+          const card = document.createElement('div');
+          card.className  = 'mc-card';
+          card.dataset.src = src;
+          card.onclick    = function() { playMix(this); };
+          card.innerHTML  = `
+            <div class="mc-top"><span class="mc-src-badge">HKCR · ${x.d}</span><span class="mc-dur">${x.dur}</span></div>
+            <div><p class="mc-artist">${x.a}</p><p class="mc-show">Yee. presents</p></div>
             <div class="mc-bot"><div class="mc-tags">${tags}</div><span class="mc-play-btn">▶ Play</span></div>
             <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>`;
           grid.appendChild(card);
