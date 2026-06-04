@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yee. — Music and community platform spotlighting the sounds of the underground from Hong Kong to the world.">
-  <meta property="og:title" content="Yee. — Hong Kong Electronic Music and community platform">
+  <meta name="description" content="Yee. — A music and community platform spotlighting the sounds of the underground from Hong Kong to the world. Mixes, events, and culture.">
+  <meta property="og:title" content="Yee. — Hong Kong Electronic Music">
+  <meta property="og:description" content="A music and community platform spotlighting the sounds of the underground from Hong Kong to the world. Mixes, events, and culture.">
   <meta property="og:image" content="https://thumbnailer.mixcloud.com/unsafe/1200x628/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649">
+  <meta property="og:url" content="https://yeehk.com">
+  <meta property="og:type" content="website">
   <title>Yee. — Hong Kong Electronic Music</title>
+  <!-- Favicon: self-host a proper favicon.ico for production -->
+  <link rel="icon" href="https://thumbnailer.mixcloud.com/unsafe/32x32/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Syne:wght@400;600;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -19,45 +24,42 @@
       --or: #D97A52; --or3: rgba(217,122,82,0.38);
       --dk: #111111;
       --fb:'Barlow Condensed',sans-serif;
-      --fa:'Aptos','Segoe UI Variable','Segoe UI',system-ui,-apple-system,sans-serif;
-      --fd:'Syne',sans-serif;
+      --fa:'Syne',sans-serif;
       --fm:'Space Mono',monospace;
       --fb2:'DM Sans',sans-serif;
     }
     html { background:var(--bg); color:var(--tx); }
-    body { font-family:var(--fb2); font-weight:300; min-height:100vh; }
+    body { font-family:var(--fb2); font-weight:300; min-height:100vh; display:flex; flex-direction:column; }
     a { color:inherit; text-decoration:none; }
     img { display:block; }
 
-    /* ─── NAV — black ─── */
+    /* ─── NAV ─── */
     nav { position:fixed; top:0; left:0; right:0; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 2.5rem; background:#111; border-bottom:1px solid rgba(255,255,255,.08); z-index:100; }
-    .logo-wrap { display:flex; align-items:center; gap:10px; cursor:pointer; }
+    .logo-wrap { display:flex; align-items:center; gap:10px; cursor:pointer; background:none; border:none; padding:0; }
     .logo-img  { width:30px; height:30px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.2); }
     .logo-tx   { font-family:var(--fa); font-weight:700; font-size:18px; letter-spacing:-0.01em; color:#fff; }
     .nav-links { display:flex; gap:1.75rem; list-style:none; }
     .nav-links a { font-family:var(--fb); font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.5); transition:color .15s; }
     .nav-links a:hover, .nav-links a.active { color:#fff; }
     .nav-r { display:flex; align-items:center; gap:1.5rem; }
-    /* Always-orange filled button */
     .btn-or { font-family:var(--fb); font-weight:700; font-size:13px; letter-spacing:0.07em; text-transform:uppercase; background:var(--or); color:#fff; border:1px solid var(--or); padding:6px 16px; border-radius:50px; transition:opacity .15s; display:inline-block; }
     .btn-or:hover { opacity:.85; }
-    /* Outlined accent button */
     .btn-out { font-family:var(--fm); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--or); border:1px solid var(--or3); padding:6px 14px; border-radius:50px; transition:background .15s,color .15s; display:inline-block; }
     .btn-out:hover { background:var(--or); color:#fff; border-color:var(--or); }
-    /* White outlined (for dark sections) */
     .btn-wt { font-family:var(--fm); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.25); padding:6px 14px; border-radius:50px; transition:background .15s,color .15s; display:inline-block; }
     .btn-wt:hover { background:rgba(255,255,255,.12); color:#fff; }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
     .hamburger span { display:block; width:20px; height:1px; background:rgba(255,255,255,.6); }
 
     /* ─── PAGES ─── */
-    .page { display:none; padding-top:60px; min-height:100vh; animation:fi .22s ease; }
+    .page { display:none; padding-top:60px; min-height:100vh; animation:fi .22s ease; flex:1; }
     .page.active { display:block; }
     @keyframes fi { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:none} }
 
     /* ─── SHARED ─── */
     .s-hd { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 2.5rem; border-bottom:1px solid var(--br); }
     .s-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(28px,4vw,48px); letter-spacing:-0.02em; line-height:1; }
+    .tx-muted { color:var(--tx3); }
 
     /* ═══ HOME ═══ */
 
@@ -65,11 +67,9 @@
     .hero { display:grid; grid-template-columns:1fr 260px 1fr; border-bottom:1px solid var(--br); min-height:480px; }
     .hero-l { padding:3.5rem 2.5rem; border-right:1px solid var(--br); display:flex; flex-direction:column; gap:1rem; }
     .hero-eye { font-family:var(--fm); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tx3); }
-    .hero-name { font-family:var(--fa); font-weight:700; font-size:clamp(56px,9vw,130px); letter-spacing:-0.05em; line-height:0.88; }
-    /* DARKER hero text — was var(--tx2)/#777, now #333 for readability */
+    .hero-name { font-family:var(--fa); font-weight:800; font-size:clamp(56px,9vw,130px); letter-spacing:-0.05em; line-height:0.88; }
     .hero-stmt { font-size:14px; font-weight:300; line-height:1.8; color:#333; max-width:380px; }
     .hero-stmt strong { color:var(--tx); font-weight:500; }
-    /* Chinese translation — shown below English with clear separation */
     .hero-zh { font-size:13px; font-weight:300; line-height:1.8; color:#555; max-width:380px; margin-top:.75rem; padding-top:.75rem; border-top:1px solid var(--br); }
     .hero-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:.25rem; }
     .h-tag { font-family:var(--fm); font-size:9px; letter-spacing:0.07em; text-transform:uppercase; border:1px solid var(--br); padding:4px 12px; border-radius:50px; color:var(--tx2); }
@@ -84,6 +84,10 @@
     .nl-inp  { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); color:#fff; font-family:var(--fb2); font-size:13px; padding:12px 14px; outline:none; width:100%; transition:border-color .15s; }
     .nl-inp::placeholder { color:rgba(255,255,255,.35); }
     .nl-inp:focus { border-color:rgba(255,255,255,.5); }
+    .nl-inp.error { border-color:var(--or); animation:shake .3s ease; }
+    .nl-err { font-family:var(--fm); font-size:9px; letter-spacing:0.06em; color:var(--or); display:none; margin-top:-2px; }
+    .nl-err.show { display:block; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
     .nl-btn  { background:var(--or); color:#fff; border:none; cursor:pointer; font-family:var(--fb); font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; padding:12px 20px; transition:opacity .15s; align-self:flex-start; border-radius:50px; }
     .nl-btn:hover { opacity:.88; }
     .nl-rd   { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-top:1.25rem; display:inline-block; transition:color .15s; }
@@ -101,13 +105,21 @@
 
     /* MIXCLOUD */
     .mc-sec { border-bottom:1px solid var(--br); }
-    .mc-widget-strip { border-bottom:1px solid var(--br); }
-    .mc-grid { display:grid; grid-template-columns:repeat(4,1fr); }
-    .mc-card { border-right:1px solid rgba(255,255,255,.08); border-bottom:1px solid var(--br); background:#111; color:#fff; padding:1.75rem 1.5rem; cursor:pointer; position:relative; min-height:200px; display:flex; flex-direction:column; justify-content:space-between; transition:background .2s; overflow:hidden; }
+    .mc-sec .s-hd { background:var(--bg); }
+    .mc-widget-strip { background:#111; border-bottom:1px solid rgba(255,255,255,.08); }
+    .mc-grid { display:grid; grid-template-columns:repeat(4,1fr); background:#111; }
+    /* Card shell — art lives here as absolute positioned layer */
+    .mc-card { border-right:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.06); background:#111; color:#fff; position:relative; min-height:200px; transition:background .2s; overflow:hidden; cursor:pointer; }
     .mc-card:nth-child(4n) { border-right:none; }
-    .mc-card:hover, .mc-card.playing { background:#1c1c1c; }
-    .mc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--or); opacity:0; transition:opacity .2s; }
-    .mc-card:hover::before, .mc-card.playing::before { opacity:1; }
+    .mc-card:hover, .mc-card.playing { background:#191919; }
+    .mc-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--or); opacity:0; transition:opacity .2s; z-index:3; }
+    .mc-card:hover::after, .mc-card.playing::after { opacity:1; }
+    /* Cover art — blurred background layer */
+    .mc-card-art { position:absolute; inset:0; background-size:cover; background-position:center; opacity:.18; transition:opacity .35s, filter .35s; filter:saturate(.45) brightness(.8); pointer-events:none; z-index:0; }
+    .mc-card:hover .mc-card-art { opacity:.35; filter:saturate(.75) brightness(.9); }
+    .mc-card.playing .mc-card-art { opacity:.45; filter:saturate(.95) brightness(.95); }
+    /* Content body sits above art */
+    .mc-card-body { position:relative; z-index:2; display:flex; flex-direction:column; justify-content:space-between; padding:1.75rem 1.5rem; min-height:200px; }
     .mc-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:.5rem; }
     .mc-src-badge { font-family:var(--fb); font-weight:600; font-size:10px; letter-spacing:0.07em; text-transform:uppercase; color:rgba(255,255,255,.45); border:1px solid rgba(255,255,255,.12); padding:3px 9px; border-radius:50px; }
     .mc-dur { font-family:var(--fm); font-size:9px; color:rgba(255,255,255,.35); }
@@ -126,14 +138,18 @@
     .mc-skel .mc-artist { background:rgba(255,255,255,.12); color:transparent; border-radius:3px; }
     .mc-skel .mc-show   { background:rgba(255,255,255,.08); color:transparent; border-radius:3px; width:80%; }
     .mc-skel .mc-src-badge { background:rgba(255,255,255,.08); color:transparent; }
+    /* Show more — mobile only */
+    .mc-more-wrap { display:none; padding:1.5rem 2.5rem; background:#111; border-top:1px solid rgba(255,255,255,.08); text-align:center; }
 
     /* PLATFORMS — BLACK tiles */
     .plat-sec { background:#111; }
     .plat-hd { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 2.5rem; border-bottom:1px solid rgba(255,255,255,.1); }
     .plat-hd-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(28px,4vw,48px); letter-spacing:-0.02em; line-height:1; color:#fff; }
-    .plat-grid { display:grid; grid-template-columns:repeat(3,1fr); border-left:1px solid rgba(255,255,255,.1); }
+    .plat-grid { display:grid; grid-template-columns:repeat(4,1fr); border-left:1px solid rgba(255,255,255,.1); }
     .plat-card { display:flex; flex-direction:column; justify-content:space-between; padding:2rem 2.5rem; border-right:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.1); min-height:130px; transition:background .15s; cursor:pointer; background:#111; }
     .plat-card:hover { background:#1c1c1c; }
+    .plat-card:nth-child(4n) { border-right:none; }
+    .plat-card:last-child { border-right:none; }
     .plat-nm  { font-family:var(--fb); font-weight:700; font-size:17px; letter-spacing:0.04em; text-transform:uppercase; color:#fff; margin-bottom:6px; }
     .plat-ds  { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.4); }
     .plat-ar  { font-size:14px; color:rgba(255,255,255,.25); align-self:flex-end; transition:color .15s,transform .15s; }
@@ -142,14 +158,13 @@
     /* ═══ ABOUT ═══ */
     .about-content { display:grid; grid-template-columns:1fr 420px; border-bottom:1px solid var(--br); }
     .ab-text { padding:5rem 2.5rem; border-right:1px solid var(--br); }
-    .pg-ttl  { font-family:var(--fa); font-weight:700; font-size:clamp(44px,6vw,72px); letter-spacing:-0.04em; line-height:0.9; color:var(--tx); margin-bottom:3rem; }
+    .pg-ttl  { font-family:var(--fa); font-weight:800; font-size:clamp(44px,6vw,72px); letter-spacing:-0.04em; line-height:0.9; color:var(--tx); margin-bottom:3rem; }
     .body-tx p { font-size:15px; font-weight:300; line-height:1.9; color:#444; margin-bottom:1.4rem; }
     .body-tx strong { color:var(--tx); font-weight:500; }
     .body-tx a { color:var(--tx); text-decoration:underline; text-decoration-color:var(--br); text-underline-offset:3px; transition:text-decoration-color .15s; }
     .body-tx a:hover { text-decoration-color:var(--or); }
-    /* Chinese about text */
     .body-zh { font-size:14px; font-weight:300; line-height:1.9; color:#555; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--br); }
-    .ab-photo { position:relative; overflow:hidden; min-height:400px; }
+    .ab-photo { position:relative; overflow:hidden; min-height:400px; background:#111; }
     .ab-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
 
     /* ═══ EVENTS ═══ */
@@ -175,7 +190,7 @@
     .ev-tag  { font-family:var(--fm); font-size:8px; letter-spacing:0.07em; text-transform:uppercase; border:1px solid var(--br); padding:3px 8px; border-radius:50px; color:var(--tx2); }
     .ev-card-ra { font-family:var(--fm); font-size:8px; letter-spacing:0.07em; text-transform:uppercase; color:var(--or); margin-top:6px; display:block; }
 
-    /* ═══ APPEARANCES ═══ */
+    /* ═══ VISUAL ═══ */
     .app-wrap { padding:5rem 2.5rem 4rem; }
     .app-intro { max-width:580px; margin-bottom:3rem; }
     .app-intro p { font-size:15px; font-weight:300; line-height:1.8; color:#555; }
@@ -189,22 +204,20 @@
     .app-yt-foot { display:flex; align-items:center; justify-content:space-between; padding:.875rem 1.5rem; background:#1a1a1a; }
     .app-yt-badge { font-family:var(--fb); font-weight:700; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--or); }
 
-    /* ═══ ARCHIVE — photo collage ═══ */
+    /* ═══ ARCHIVE ═══ */
     .arc-pg { min-height:100vh; }
     .arc-hdr { display:flex; align-items:flex-end; justify-content:space-between; padding:3.5rem 2.5rem 2rem; border-bottom:1px solid var(--br); flex-wrap:wrap; gap:1rem; }
     .arc-hdr-l .arc-tag { font-family:var(--fm); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tx3); margin-bottom:.75rem; }
-    .arc-hdr-l .arc-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(44px,6vw,80px); letter-spacing:-0.04em; line-height:0.9; color:var(--tx); }
+    .arc-hdr-l .arc-ttl { font-family:var(--fa); font-weight:800; font-size:clamp(44px,6vw,80px); letter-spacing:-0.04em; line-height:0.9; color:var(--tx); }
     .arc-sub { font-family:var(--fm); font-size:10px; letter-spacing:0.07em; text-transform:uppercase; color:var(--tx2); margin-top:.75rem; }
-    /* CSS masonry collage — 3 columns, tight gap */
     .arc-collage { columns:3; column-gap:3px; padding:3px; }
     .arc-col-item { break-inside:avoid; margin-bottom:3px; display:block; overflow:hidden; position:relative; }
-    .arc-col-item img { width:100%; height:auto; display:block; transition:transform .4s ease, filter .3s ease; filter:brightness(0.95); }
+    .arc-col-item img { width:100%; height:auto; display:block; transition:transform .4s ease,filter .3s ease; filter:brightness(0.95); }
     .arc-col-item:hover img { transform:scale(1.02); filter:brightness(1); }
-    /* Mix archive link strip */
     .arc-mix-link { display:flex; align-items:center; justify-content:space-between; padding:1.5rem 2.5rem; border-top:1px solid var(--br); font-family:var(--fm); font-size:10px; color:var(--tx2); letter-spacing:0.06em; text-transform:uppercase; }
 
-    /* FOOTER — BLACK matching nav */
-    footer { padding:1.75rem 2.5rem; background:#111; border-top:1px solid rgba(255,255,255,.08); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    /* FOOTER */
+    footer { padding:1.75rem 2.5rem; background:#111; border-top:1px solid rgba(255,255,255,.08); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; flex-shrink:0; }
     .ft-lg  { font-family:var(--fa); font-weight:700; font-size:14px; color:rgba(255,255,255,.5); }
     .ft-lks { display:flex; gap:1.75rem; flex-wrap:wrap; }
     .ft-lks a { font-family:var(--fb); font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.4); transition:color .15s; }
@@ -222,29 +235,43 @@
       .hero { grid-template-columns:1fr 1fr; }
       .hero-mid { display:none; }
       .mc-grid { grid-template-columns:repeat(2,1fr); }
+      .mc-card:nth-child(4n) { border-right:1px solid rgba(255,255,255,.08); }
+      .mc-card:nth-child(2n) { border-right:none; }
       .ev-grid { grid-template-columns:repeat(2,1fr); }
       .about-content { grid-template-columns:1fr; }
       .ab-photo { min-height:320px; max-height:480px; border-top:1px solid var(--br); }
       .arc-collage { columns:2; }
+      .plat-grid { grid-template-columns:repeat(3,1fr); }
+      .plat-card:nth-child(4n) { border-right:1px solid rgba(255,255,255,.1); }
+      .plat-card:nth-child(3n) { border-right:none; }
     }
     @media (max-width:800px) {
       .hero { grid-template-columns:1fr; }
       .hero-l { border-right:none; border-bottom:1px solid var(--br); }
       .mc-grid { grid-template-columns:repeat(2,1fr); }
+      .mc-card.mc-hide-mob { display:none; }
+      .mc-more-wrap { display:block; }
+      .mc-card-body { padding:1.5rem 1.25rem; min-height:170px; }
       .plat-grid { grid-template-columns:repeat(2,1fr); }
+      .plat-card:nth-child(3n) { border-right:1px solid rgba(255,255,255,.1); }
+      .plat-card:nth-child(2n) { border-right:none; }
       nav .nav-links { display:none; }
       .hamburger { display:flex; }
       .hero-l,.hero-r { padding:2.5rem 1.5rem; }
       .s-hd,.plat-hd,.ev-wrap,.ab-text,.app-wrap,.arc-hdr { padding-left:1.5rem; padding-right:1.5rem; }
-      .mc-card { padding:1.5rem 1.25rem; min-height:170px; }
+      .mc-sec .s-hd { padding-left:1.5rem; padding-right:1.5rem; }
       .plat-card { padding:1.5rem; }
       footer,.arc-mix-link { padding-left:1.5rem; padding-right:1.5rem; }
       .ra-blk { padding:1.5rem; }
       .ev-grid { grid-template-columns:1fr; gap:2rem; }
+      .mc-more-wrap { padding:1.5rem; }
     }
     @media (max-width:560px) {
       .plat-grid { grid-template-columns:1fr; }
-      .mc-grid   { grid-template-columns:1fr; }
+      .plat-card:nth-child(2n) { border-right:none; }
+      .plat-card { border-right:none; }
+      .mc-grid { grid-template-columns:1fr; }
+      .mc-card:nth-child(2n) { border-right:none; }
       .arc-collage { columns:1; }
     }
   </style>
@@ -253,30 +280,32 @@
 
 <!-- ─── NAV ─── -->
 <nav>
-  <div class="logo-wrap" onclick="show('home')">
+  <button class="logo-wrap" onclick="show('home')" aria-label="Yee. — return to home">
     <img class="logo-img" src="https://thumbnailer.mixcloud.com/unsafe/120x120/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649" alt="Yee." onerror="this.style.display='none'">
     <span class="logo-tx">Yee.</span>
-  </div>
+  </button>
   <ul class="nav-links">
-    <li><a href="#" id="n-home"        onclick="show('home');return false"        class="active">Home</a></li>
-    <li><a href="#" id="n-about"       onclick="show('about');return false"       >About</a></li>
-    <li><a href="#" id="n-events"      onclick="show('events');return false"      >Events</a></li>
-    <li><a href="#" id="n-appearances" onclick="show('appearances');return false" >Appearances</a></li>
-    <li><a href="#" id="n-archive"     onclick="show('archive');return false"     >Archive</a></li>
+    <li><a href="#" id="n-home"    onclick="show('home');return false"    class="active">Home</a></li>
+    <li><a href="#" id="n-about"   onclick="show('about');return false"   >About</a></li>
+    <li><a href="#" id="n-events"  onclick="show('events');return false"  >Events</a></li>
+    <li><a href="#" id="n-visual"  onclick="show('visual');return false"  >Visual</a></li>
+    <li><a href="#" id="n-archive" onclick="show('archive');return false" >Archive</a></li>
   </ul>
   <div class="nav-r">
     <a class="btn-or" href="https://yeehk.substack.com/" target="_blank" rel="noopener">Newsletter ↗</a>
-    <div class="hamburger" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></div>
+    <button class="hamburger" id="hamburger-btn" onclick="toggleMob()" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <div class="mob-nav" id="mob-nav">
-  <a href="#" id="mn-home"        onclick="show('home');return false"        >Home</a>
-  <a href="#" id="mn-about"       onclick="show('about');return false"       >About</a>
-  <a href="#" id="mn-events"      onclick="show('events');return false"      >Events</a>
-  <a href="#" id="mn-appearances" onclick="show('appearances');return false" >Appearances</a>
-  <a href="#" id="mn-archive"     onclick="show('archive');return false"     >Archive</a>
-  <a href="https://yeehk.substack.com/" target="_blank" style="color:var(--or);">Newsletter ↗</a>
+  <a href="#" id="mn-home"    onclick="show('home');return false"    >Home</a>
+  <a href="#" id="mn-about"   onclick="show('about');return false"   >About</a>
+  <a href="#" id="mn-events"  onclick="show('events');return false"  >Events</a>
+  <a href="#" id="mn-visual"  onclick="show('visual');return false"  >Visual</a>
+  <a href="#" id="mn-archive" onclick="show('archive');return false" >Archive</a>
+  <a href="https://yeehk.substack.com/" target="_blank" rel="noopener" style="color:var(--or);">Newsletter ↗</a>
 </div>
 
 
@@ -287,13 +316,12 @@
   <div class="hero">
     <div class="hero-l">
       <p class="hero-eye">Hong Kong — Electronic Music</p>
-      <div class="hero-name">Yee.</div>
+      <h1 class="hero-name">Yee.</h1>
       <p class="hero-stmt">
         <strong>A music and community platform spotlighting the sounds of the underground from Hong Kong to the world.</strong>
-        We curate events, spotlight talent, and create spaces where culture, and connection thrive
+        We curate events, spotlight talent, and create spaces where culture and connection thrive.
       </p>
-      <!-- Chinese translation — separated by border for clarity -->
-      <p class="hero-zh">
+      <p class="hero-zh" lang="zh-HK">
         Yee. 是根植香港的音樂及社群平台，致力將地下音樂推向世界。我們策辦活動、發掘本地人才，為音樂、文化與連結創造空間。一齊向前，推動文化。
       </p>
       <div class="hero-tags">
@@ -305,7 +333,7 @@
       <p class="hero-loc">📍 HK +852 · 音樂社群</p>
     </div>
     <div class="hero-mid">
-      <img src="./yee-club.jpg" alt="Yee. community">
+      <img src="./yee-club.jpg" alt="Yee. community — Hong Kong underground" onerror="this.closest('.hero-mid').style.background='#111'">
     </div>
     <div class="hero-r">
       <p class="nl-tag">Newsletter</p>
@@ -313,13 +341,14 @@
       <p class="nl-desc">In-depth underground music insights, exclusive monthly mixes, events, and thoughtful editorials on electronic music culture. Curated by adam. from Yee.</p>
       <div class="nl-form">
         <input class="nl-inp" type="email" id="nl-email" placeholder="your@email.com" autocomplete="email"/>
+        <span class="nl-err" id="nl-err">Please enter a valid email address</span>
         <button class="nl-btn" onclick="nlSub()">Subscribe free →</button>
       </div>
       <a class="nl-rd" href="https://yeehk.substack.com/" target="_blank" rel="noopener">Read all issues on Substack ↗</a>
     </div>
   </div>
 
-  <!-- YOUTUBE — Recovery Sessions -->
+  <!-- YOUTUBE -->
   <div class="yt-sec">
     <div class="s-hd">
       <h2 class="s-ttl">Watch</h2>
@@ -339,51 +368,54 @@
     </div>
   </div>
 
-  <!-- MIXCLOUD — profile widget + 8 live API cards -->
+  <!-- MIXCLOUD -->
   <div class="mc-sec">
     <div class="s-hd">
-      <h2 class="s-ttl">Yee. presents <span style="color:var(--tx3);">___</span> on HKCR</h2>
-      <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">All 29 shows ↗</a>
+      <h2 class="s-ttl">Yee. presents <span class="tx-muted">___</span> on HKCR</h2>
+      <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">All shows ↗</a>
     </div>
-    <!-- Live browseable profile widget -->
     <div class="mc-widget-strip">
       <iframe width="100%" height="180" frameborder="0" allow="autoplay"
-        src="https://www.mixcloud.com/widget/iframe/?hide_cover=0&mini=0&dark=0&feed=%2Fyeehk%2F"
+        src="https://www.mixcloud.com/widget/iframe/?hide_cover=0&mini=0&dark=1&feed=%2Fyeehk%2F"
         loading="lazy"></iframe>
     </div>
-    <!-- 8 cards — populated by Mixcloud API in JS; falls back to 4 hardcoded -->
     <div class="mc-grid" id="mc-grid"></div>
-    <!-- Mini strip REMOVED as requested -->
+    <div class="mc-more-wrap" id="mc-show-more">
+      <button class="btn-wt" onclick="showMoreMixes()">Show more mixes ↓</button>
+    </div>
   </div>
 
-  <!-- FIND US ON — black tiles -->
+  <!-- FIND US ON -->
   <div class="plat-sec">
     <div class="plat-hd">
       <h2 class="plat-hd-ttl">Find us on</h2>
     </div>
     <div class="plat-grid">
-      <a class="plat-card" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener"><div><p class="plat-nm">Mixcloud</p><p class="plat-ds">Mixes &amp; DJ Sets — 29 shows</p></div><span class="plat-ar">↗</span></a>
-      <a class="plat-card" href="https://yeehk.substack.com/" target="_blank" rel="noopener"><div><p class="plat-nm">Substack</p><p class="plat-ds">Newsletter &amp; Writing</p></div><span class="plat-ar">↗</span></a>
-      <a class="plat-card" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener"><div><p class="plat-nm">YouTube</p><p class="plat-ds">Video &amp; Livestreams</p></div><span class="plat-ar">↗</span></a>
-      <a class="plat-card" href="https://hkcr.live" target="_blank" rel="noopener"><div><p class="plat-nm">HKCR</p><p class="plat-ds">Radio Broadcasts</p></div><span class="plat-ar">↗</span></a>
-      <a class="plat-card" href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener"><div><p class="plat-nm">Instagram</p><p class="plat-ds">@yee.___hk</p></div><span class="plat-ar">↗</span></a>
-      <a class="plat-card" href="https://ra.co/promoters/166205" target="_blank" rel="noopener"><div><p class="plat-nm">Resident Advisor</p><p class="plat-ds">Events &amp; Listings</p></div><span class="plat-ar">↗</span></a>
+      <a class="plat-card" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">
+        <div><p class="plat-nm">Mixcloud</p><p class="plat-ds">Mixes &amp; DJ Sets</p></div><span class="plat-ar">↗</span>
+      </a>
+      <a class="plat-card" href="https://soundcloud.com/yee-hkuk1" target="_blank" rel="noopener">
+        <div><p class="plat-nm">SoundCloud</p><p class="plat-ds">Tracks &amp; Mixes</p></div><span class="plat-ar">↗</span>
+      </a>
+      <a class="plat-card" href="https://yeehk.substack.com/" target="_blank" rel="noopener">
+        <div><p class="plat-nm">Substack</p><p class="plat-ds">Newsletter &amp; Writing</p></div><span class="plat-ar">↗</span>
+      </a>
+      <a class="plat-card" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">
+        <div><p class="plat-nm">YouTube</p><p class="plat-ds">Video &amp; Livestreams</p></div><span class="plat-ar">↗</span>
+      </a>
+      <a class="plat-card" href="https://hkcr.live" target="_blank" rel="noopener">
+        <div><p class="plat-nm">HKCR</p><p class="plat-ds">Radio Broadcasts</p></div><span class="plat-ar">↗</span>
+      </a>
+      <a class="plat-card" href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">
+        <div><p class="plat-nm">Instagram</p><p class="plat-ds">@yee.___hk</p></div><span class="plat-ar">↗</span>
+      </a>
+      <a class="plat-card" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">
+        <div><p class="plat-nm">Resident Advisor</p><p class="plat-ds">Events &amp; Listings</p></div><span class="plat-ar">↗</span>
+      </a>
     </div>
   </div>
 
-  <footer>
-    <span class="ft-lg">Yee.</span>
-    <div class="ft-lks">
-      <a href="https://yeehk.substack.com/" target="_blank">Substack</a>
-      <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
-      <a href="https://www.youtube.com/@yee._hk" target="_blank">YouTube</a>
-      <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
-      <a href="https://ra.co/promoters/166205" target="_blank">RA</a>
-      <a href="mailto:yee_hk@outlook.com">Contact</a>
-    </div>
-    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
-  </footer>
-</div>
+</div><!-- /pg-home -->
 
 
 <!-- ════ ABOUT ════ -->
@@ -397,25 +429,14 @@
         <p>Through exclusive mixes on <strong>Mixcloud</strong>, broadcasts on <strong>HKCR</strong>, video content on <strong>YouTube</strong>, in-depth writing on <strong>Substack</strong>, and events on <strong>Resident Advisor</strong>, Yee. is building a record of Hong Kong's electronic music culture — the sounds, the spaces, and the people who make it.</p>
         <p>Follow on <a href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">Instagram @yee.___hk</a> · Subscribe on <a href="https://yeehk.substack.com/" target="_blank" rel="noopener">Substack</a> · Get in touch at <a href="mailto:yee_hk@outlook.com">yee_hk@outlook.com</a></p>
       </div>
-      <!-- Chinese summary — separated clearly from English -->
-      <p class="body-zh">
+      <p class="body-zh" lang="zh-HK">
         Yee. 是以香港為根的音樂社群平台，記錄並慶祝地下音樂文化。從工廈派對到深夜聆聽，從硬件發燒友到以每個 set 與人對話的 DJ——我們都在乎。透過 Mixcloud、HKCR、YouTube、Substack 及 RA，Yee. 正為香港電子音樂文化建立一套長期紀錄——那些聲音、空間，以及成就一切的人。
       </p>
     </div>
     <div class="ab-photo">
-      <img src="./yee-street.jpg" alt="Yee. community — Hong Kong underground">
+      <img src="./yee-street.jpg" alt="Yee. community — Hong Kong underground scene" onerror="this.style.display='none'">
     </div>
   </div>
-  <footer>
-    <span class="ft-lg">Yee.</span>
-    <div class="ft-lks">
-      <a href="https://yeehk.substack.com/" target="_blank">Substack</a>
-      <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
-      <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
-      <a href="mailto:yee_hk@outlook.com">Contact</a>
-    </div>
-    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
-  </footer>
 </div>
 
 
@@ -429,7 +450,7 @@
     <div class="ra-blk">
       <div class="ra-l">
         <p class="ra-lg">Upcoming Events</p>
-        <p class="ra-tx"><strong>Most Yee. events are listed on Resident Advisor and IG.</strong> Follow our profile to be notified when new events are announced — RA lets you set alerts and follow promoters directly.</p>
+        <p class="ra-tx"><strong>Most Yee. events are listed on Resident Advisor and Instagram.</strong> Follow our profile to be notified when new events are announced — RA lets you set alerts and follow promoters directly.</p>
       </div>
       <a class="btn-out" href="https://ra.co/promoters/166205" target="_blank" rel="noopener">Follow on RA ↗</a>
     </div>
@@ -437,7 +458,7 @@
     <h3 class="past-hd">Past Events</h3>
     <div class="ev-grid">
       <a class="ev-card" href="https://ra.co/events/2405394" target="_blank" rel="noopener">
-        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vYjBkMDI4ZmJhYWUyNmMxOGVjNGE0NjljZGU3OTNhOTliYjY5N2MyNC5qcGc=" alt="The Bunker" loading="lazy"></div>
+        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vYjBkMDI4ZmJhYWUyNmMxOGVjNGE0NjljZGU3OTNhOTliYjY5N2MyNC5qcGc=" alt="909ug × Yee. presents The Bunker — April 2026" loading="lazy"></div>
         <p class="ev-card-date">Fri 3 Apr 2026 · 22:30</p>
         <p class="ev-card-name">909ug × Yee. presents The Bunker</p>
         <p class="ev-card-venue">Secret Warehouse, HK</p>
@@ -445,7 +466,7 @@
         <span class="ev-card-ra">View on RA ↗</span>
       </a>
       <a class="ev-card" href="https://ra.co/events/2316243" target="_blank" rel="noopener">
-        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vY2JkMzcyYzA4MDY1NjZmNDFlMjA5ZTQ3YWZhZDI1NDZmZTRmZmFkNi5qcGc=" alt="The Afters" loading="lazy"></div>
+        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vY2JkMzcyYzA4MDY1NjZmNDFlMjA5ZTQ3YWZhZDI1NDZmZTRmZmFkNi5qcGc=" alt="Yee. × S2 presents The Afters — December 2025" loading="lazy"></div>
         <p class="ev-card-date">Fri 5 Dec 2025 · 23:00</p>
         <p class="ev-card-name">Yee. × S2 presents: The Afters</p>
         <p class="ev-card-venue">Social Room, Central HK</p>
@@ -453,7 +474,7 @@
         <span class="ev-card-ra">View on RA ↗</span>
       </a>
       <a class="ev-card" href="https://ra.co/events/2291009" target="_blank" rel="noopener">
-        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vNDAzZDg5MDlkZTU2YTZiZTk2M2IyNjA1MTNhYjIwZDE5MmU3ZDVkMy5qcGc=" alt="7/11" loading="lazy"></div>
+        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vNDAzZDg5MDlkZTU2YTZiZTk2M2IyNjA1MTNhYjIwZDE5MmU3ZDVkMy5qcGc=" alt="RowdyRuff Recordz × Yee. 7/11 — November 2025" loading="lazy"></div>
         <p class="ev-card-date">Fri 7 Nov 2025 · 21:30</p>
         <p class="ev-card-name">RowdyRuff Recordz × Yee.: 7/11</p>
         <p class="ev-card-venue">Soho House HK</p>
@@ -461,7 +482,7 @@
         <span class="ev-card-ra">View on RA ↗</span>
       </a>
       <a class="ev-card" href="https://ra.co/events/2205997" target="_blank" rel="noopener">
-        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vN2IwMDdkZTcyM2Q0YWIxZTE2MGM3Y2I5ZTRlMzc4OWQxZTUzMTFkNi5wbmc=" alt="01 Festival" loading="lazy"></div>
+        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vN2IwMDdkZTcyM2Q0YWIxZTE2MGM3Y2I5ZTRlMzc4OWQxZTUzMTFkNi5wbmc=" alt="01 Festival 2025 — Murray House, Stanley" loading="lazy"></div>
         <p class="ev-card-date">Sat 30 Aug 2025 · 15:00</p>
         <p class="ev-card-name">01 Festival 2025</p>
         <p class="ev-card-venue">Murray House, Stanley HK</p>
@@ -469,7 +490,7 @@
         <span class="ev-card-ra">View on RA ↗</span>
       </a>
       <a class="ev-card" href="https://ra.co/events/2189508" target="_blank" rel="noopener">
-        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vMTdkODc4MjY5NDI3NmE3Yjk2NzQ2ODk2ZWI4M2Y3YjNkM2M5OTY2Ny5qcGc=" alt="SLAP Takeover" loading="lazy"></div>
+        <div class="ev-card-img"><img src="https://imgproxy.ra.co/_/quality:66/aHR0cHM6Ly9pbWFnZXMucmEuY28vMTdkODc4MjY5NDI3NmE3Yjk2NzQ2ODk2ZWI4M2Y3YjNkM2M5OTY2Ny5qcGc=" alt="SLAP Takeover — July 2025, Mong Kok" loading="lazy"></div>
         <p class="ev-card-date">Sat 12 Jul 2025 · 23:00</p>
         <p class="ev-card-name">Gone Fishin' × SLIMEFEST × Yee.: SLAP 拍 Takeover</p>
         <p class="ev-card-venue">SLAP 拍, Mong Kok HK</p>
@@ -478,91 +499,105 @@
       </a>
     </div>
   </div>
-  <footer>
-    <span class="ft-lg">Yee.</span>
-    <div class="ft-lks">
-      <a href="https://ra.co/promoters/166205" target="_blank">Resident Advisor</a>
-      <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
-      <a href="mailto:yee_hk@outlook.com">Contact</a>
-    </div>
-    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
-  </footer>
 </div>
 
 
-<!-- ════ APPEARANCES (new) ════ -->
-<div id="pg-appearances" class="page">
+<!-- ════ VISUAL ════ -->
+<div id="pg-visual" class="page">
   <div class="app-wrap">
     <div class="ev-hd">
-      <h2 class="pg-ttl">Appearances</h2>
+      <h2 class="pg-ttl">Visual</h2>
       <a class="btn-out" href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube @yee._hk ↗</a>
     </div>
     <div class="app-intro">
-      <p>Yee. in the wild — live sets, guest appearances, and recorded sessions from around Hong Kong and beyond.</p>
+      <p>Yee. on screen — listening sessions, live sets, radio broadcasts, and recorded appearances from across Hong Kong and beyond.</p>
     </div>
 
-    <!-- Playlist 1 -->
+    <!-- 1 — Recovery Sessions -->
     <div class="app-pl">
       <div class="app-pl-hd">
         <div>
-          <h3 class="app-pl-ttl">Club Sets</h3>
-          <p class="app-pl-sub">Yee. × S2 — live electronic music sessions</p>
+          <h3 class="app-pl-ttl">Recovery Sessions</h3>
+          <p class="app-pl-sub">Yee. × Listening Room — monthly live music platform and session series</p>
+        </div>
+        <a class="btn-out" href="https://youtube.com/playlist?list=PL1MPlRp510yfPyvg-Yqm5mCHUJfY09D9j" target="_blank" rel="noopener">Full playlist ↗</a>
+      </div>
+      <div class="app-embed">
+        <div class="app-yt">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510yfPyvg-Yqm5mCHUJfY09D9j&rel=0&modestbranding=1&color=white" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="app-yt-foot">
+          <span class="app-yt-badge">Recovery Sessions</span>
+          <a class="btn-wt" href="https://youtube.com/playlist?list=PL1MPlRp510yfPyvg-Yqm5mCHUJfY09D9j" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 — Yee. Live -->
+    <div class="app-pl">
+      <div class="app-pl-hd">
+        <div>
+          <h3 class="app-pl-ttl">Yee. Live</h3>
+          <p class="app-pl-sub">Live performances, DJ sets, and recorded appearances</p>
+        </div>
+        <a class="btn-out" href="https://youtube.com/playlist?list=PL1MPlRp510ydI1Fk_Pgrn50gzucHhr3PW" target="_blank" rel="noopener">Full playlist ↗</a>
+      </div>
+      <div class="app-embed">
+        <div class="app-yt">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydI1Fk_Pgrn50gzucHhr3PW&rel=0&modestbranding=1&color=white" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="app-yt-foot">
+          <span class="app-yt-badge">Live</span>
+          <a class="btn-wt" href="https://youtube.com/playlist?list=PL1MPlRp510ydI1Fk_Pgrn50gzucHhr3PW" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 — Radio Sets -->
+    <div class="app-pl">
+      <div class="app-pl-hd">
+        <div>
+          <h3 class="app-pl-ttl">Radio Sets</h3>
+          <p class="app-pl-sub">Yee. on air — live broadcast recordings and radio appearances</p>
         </div>
         <a class="btn-out" href="https://youtube.com/playlist?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI" target="_blank" rel="noopener">Full playlist ↗</a>
       </div>
       <div class="app-embed">
         <div class="app-yt">
-          <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI&rel=0&modestbranding=1&color=white"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy">
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI&rel=0&modestbranding=1&color=white" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="app-yt-foot">
-          <span class="app-yt-badge">Playlist 1</span>
+          <span class="app-yt-badge">Radio Sets</span>
           <a class="btn-wt" href="https://youtube.com/playlist?list=PL1MPlRp510ydxayyy76Ad82xtLzZXgHZI" target="_blank" rel="noopener">Watch on YouTube ↗</a>
         </div>
       </div>
     </div>
 
-    <!-- Playlist 2 -->
+    <!-- 4 — Yee. Sets & Sessions -->
     <div class="app-pl">
       <div class="app-pl-hd">
         <div>
           <h3 class="app-pl-ttl">Yee. Sets &amp; Sessions</h3>
-          <p class="app-pl-sub">Performances and recorded appearances</p>
+          <p class="app-pl-sub">Performances and recorded appearances from Yee. artists</p>
         </div>
         <a class="btn-out" href="https://youtube.com/playlist?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS" target="_blank" rel="noopener">Full playlist ↗</a>
       </div>
       <div class="app-embed">
         <div class="app-yt">
-          <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS&rel=0&modestbranding=1&color=white"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy">
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS&rel=0&modestbranding=1&color=white" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="app-yt-foot">
-          <span class="app-yt-badge">Playlist 2</span>
+          <span class="app-yt-badge">Sessions</span>
           <a class="btn-wt" href="https://youtube.com/playlist?list=PL1MPlRp510ydehgedUGfVUQ3KBsrSWdcS" target="_blank" rel="noopener">Watch on YouTube ↗</a>
         </div>
       </div>
     </div>
+
   </div>
-  <footer>
-    <span class="ft-lg">Yee.</span>
-    <div class="ft-lks">
-      <a href="https://www.youtube.com/@yee._hk" target="_blank">YouTube</a>
-      <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
-      <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
-      <a href="mailto:yee_hk@outlook.com">Contact</a>
-    </div>
-    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
-  </footer>
 </div>
 
 
-<!-- ════ ARCHIVE — photo collage ════ -->
+<!-- ════ ARCHIVE ════ -->
 <div id="pg-archive" class="page arc-pg">
   <div class="arc-hdr">
     <div class="arc-hdr-l">
@@ -573,51 +608,52 @@
     <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Mix archive on Mixcloud ↗</a>
   </div>
 
-  <!--
-    PHOTO COLLAGE — all images from GitHub repo (same folder as index.html)
-    Images: exact filenames from repository, case-sensitive.
-    Note: IMG_2542.HEIC may not load in Chrome/Firefox; onerror handles gracefully.
-  -->
   <div class="arc-collage">
-    <div class="arc-col-item"><img src="./6b05311d-2571-4749-b0d5-6e93f9a38b6b.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./C524E02A-B3DA-4E51-AD23-59138ADA5290.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./83fb0120-9bed-41dd-9a57-2df0623cbfaf.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./39D3CC10-DC33-444D-9279-78CE8C9E0941.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./017B8444-8D62-44FF-B6E4-1677A1605500.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./72e893cd-afee-4ab2-bbe4-78ed0d4cdda9.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./2d8166ee-6753-4ebd-ba4f-136120ed5b81.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./e9cfdb40-9023-4ca6-92f7-827ac9cd9488.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./40a3daa3-15bf-4dc3-8bc6-a652c40690f2.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./348AAD70-D5E1-4B4F-9203-30A4E1E7E094.jpg"   alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./c2391d32-78dc-45e5-8b72-d7707fce10ea.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./6357e989-ca0c-4b4e-a2df-179e4af83fec.jpg"    alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./IMG_0975.JPG"                                 alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./IMG_9415.PNG"                                 alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./IMG_2542.HEIC"                                alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./yee-street.jpg"                               alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
-    <div class="arc-col-item"><img src="./yee-club.jpg"                                 alt="Yee." loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./6b05311d-2571-4749-b0d5-6e93f9a38b6b.jpg"  alt="Yee. community event — Hong Kong" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./C524E02A-B3DA-4E51-AD23-59138ADA5290.jpg"  alt="Yee. night — Hong Kong underground" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./83fb0120-9bed-41dd-9a57-2df0623cbfaf.jpg"  alt="Yee. event" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./39D3CC10-DC33-444D-9279-78CE8C9E0941.jpg"  alt="Yee. community" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./017B8444-8D62-44FF-B6E4-1677A1605500.jpg"  alt="Yee. underground scene" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./72e893cd-afee-4ab2-bbe4-78ed0d4cdda9.jpg"  alt="Yee. event — dancefloor" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./2d8166ee-6753-4ebd-ba4f-136120ed5b81.jpg"  alt="Yee. community gathering" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./e9cfdb40-9023-4ca6-92f7-827ac9cd9488.jpg"  alt="Yee. night" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./40a3daa3-15bf-4dc3-8bc6-a652c40690f2.jpg"  alt="Yee. — Hong Kong warehouse" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./348AAD70-D5E1-4B4F-9203-30A4E1E7E094.jpg" alt="Yee. event" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./c2391d32-78dc-45e5-8b72-d7707fce10ea.jpg"  alt="Yee. community" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./6357e989-ca0c-4b4e-a2df-179e4af83fec.jpg"  alt="Yee. warehouse night" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./IMG_0975.JPG"                               alt="Yee. event" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./IMG_9415.PNG"                               alt="Yee. community" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <!-- IMG_2542.HEIC removed: HEIC format unsupported in Chrome/Firefox — convert to .jpg and re-add -->
+    <div class="arc-col-item"><img src="./yee-street.jpg"                             alt="Yee. — Hong Kong streets" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
+    <div class="arc-col-item"><img src="./yee-club.jpg"                               alt="Yee. club event — Hong Kong" loading="lazy" onerror="this.closest('.arc-col-item').style.display='none'"></div>
   </div>
 
   <div class="arc-mix-link">
-    <span>Mix archive — 29 shows on Mixcloud</span>
+    <span>Mix archive — all shows on Mixcloud</span>
     <a class="btn-out" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Browse all mixes ↗</a>
   </div>
-
-  <footer>
-    <span class="ft-lg">Yee.</span>
-    <div class="ft-lks">
-      <a href="https://www.mixcloud.com/yeehk/" target="_blank">Mixcloud</a>
-      <a href="https://www.instagram.com/yee.___hk/" target="_blank">Instagram</a>
-      <a href="mailto:yee_hk@outlook.com">Contact</a>
-    </div>
-    <span class="ft-cp">© Yee. 2026. All rights reserved and protected by copyright.</span>
-  </footer>
 </div>
+
+
+<!-- ════ SINGLE FOOTER — shared across all pages ════ -->
+<footer>
+  <span class="ft-lg">Yee.</span>
+  <div class="ft-lks">
+    <a href="https://yeehk.substack.com/" target="_blank" rel="noopener">Substack</a>
+    <a href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Mixcloud</a>
+    <a href="https://soundcloud.com/yee-hkuk1" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://ra.co/promoters/166205" target="_blank" rel="noopener">RA</a>
+    <a href="mailto:yee_hk@outlook.com">Contact</a>
+  </div>
+  <span class="ft-cp">© Yee. 2026. All rights reserved.</span>
+</footer>
 
 
 <script>
   /* ── Navigation ── */
-  const PAGES = ['home','about','events','appearances','archive'];
+  const PAGES = ['home','about','events','visual','archive'];
 
   function show(id) {
     PAGES.forEach(p => {
@@ -628,122 +664,155 @@
       });
     });
     window.scrollTo({top:0, behavior:'instant'});
-    document.getElementById('mob-nav').classList.remove('open');
+    const mob = document.getElementById('mob-nav');
+    mob.classList.remove('open');
+    const hbtn = document.getElementById('hamburger-btn');
+    if (hbtn) hbtn.setAttribute('aria-expanded','false');
   }
 
   function toggleMob() {
-    document.getElementById('mob-nav').classList.toggle('open');
+    const mob  = document.getElementById('mob-nav');
+    const hbtn = document.getElementById('hamburger-btn');
+    const open = mob.classList.toggle('open');
+    hbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 
-  /* ── Newsletter subscription ── */
+  /* ── Newsletter ── */
   function nlSub() {
-    const v = document.getElementById('nl-email').value.trim();
-    if (!v || !v.includes('@')) { document.getElementById('nl-email').focus(); return; }
+    const input = document.getElementById('nl-email');
+    const err   = document.getElementById('nl-err');
+    const v     = input.value.trim();
+    const valid = v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if (!valid) {
+      input.classList.add('error');
+      err.classList.add('show');
+      input.focus();
+      setTimeout(() => input.classList.remove('error'), 400);
+      return;
+    }
+    err.classList.remove('show');
+    input.classList.remove('error');
     window.open('https://yeehk.substack.com/?email=' + encodeURIComponent(v), '_blank');
   }
   document.addEventListener('keydown', e => {
     if (e.key === 'Enter' && document.activeElement.id === 'nl-email') nlSub();
   });
 
-  /* ── Mixcloud card play/collapse ── */
+  /* ── Mixcloud play/collapse ── */
   function playMix(card) {
-    const isPlaying = card.classList.contains('playing');
+    const wasPlaying = card.classList.contains('playing');
     document.querySelectorAll('.mc-card.playing').forEach(c => {
       c.classList.remove('playing');
       const f = c.querySelector('.mc-player iframe');
       if (f) f.src = 'about:blank';
     });
-    if (!isPlaying) {
+    if (!wasPlaying) {
       card.classList.add('playing');
       const f = card.querySelector('.mc-player iframe');
       if (f) f.src = card.dataset.src;
     }
   }
 
-  /* ── Mixcloud API — fetch 8 latest shows live in browser ──
-     api.mixcloud.com supports CORS so this works client-side.
-     Falls back to 4 hardcoded shows if API is unreachable.
-  ── */
+  /* ── Show more mixes (mobile) ── */
+  function showMoreMixes() {
+    document.querySelectorAll('.mc-card.mc-hide-mob').forEach(c => c.classList.remove('mc-hide-mob'));
+    const wrap = document.getElementById('mc-show-more');
+    if (wrap) wrap.style.display = 'none';
+  }
+
+  /* ── Mixcloud API — 8 shows with cover art ── */
   (function loadMixcloudShows() {
     const grid = document.getElementById('mc-grid');
 
-    // Show skeletons while loading
+    // Skeletons
     for (let i = 0; i < 8; i++) {
       const sk = document.createElement('div');
       sk.className = 'mc-card mc-skel';
       sk.innerHTML = `
-        <div class="mc-top"><span class="mc-src-badge">HKCR</span><span class="mc-dur">—</span></div>
-        <div><p class="mc-artist">Loading…</p><p class="mc-show">Yee. presents</p></div>
-        <div class="mc-bot"><div class="mc-tags"></div><span class="mc-play-btn">▶ Play</span></div>
-        <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>`;
+        <div class="mc-card-art"></div>
+        <div class="mc-card-body">
+          <div class="mc-top"><span class="mc-src-badge">HKCR</span><span class="mc-dur">—</span></div>
+          <div><p class="mc-artist">Loading…</p><p class="mc-show">Yee. presents</p></div>
+          <div class="mc-bot"><div class="mc-tags"></div><span class="mc-play-btn">▶ Play</span></div>
+          <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>
+        </div>`;
       grid.appendChild(sk);
     }
 
     function fmtDur(s) {
       s = Math.round(s);
-      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+      const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
       return h ? `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`
                : `${m}:${String(sec).padStart(2,'0')}`;
     }
 
     function parseArtist(name) {
       const m = name.match(/Yee\.\s*presents\s+(.+?)\s*[-–]/i);
-      return m ? m[1].trim() : name.replace(/\|.*$/, '').replace(/Yee\.?\s*presents\s*/i, '').trim();
+      return m ? m[1].trim() : name.replace(/\|.*$/,'').replace(/Yee\.?\s*presents\s*/i,'').trim();
     }
 
     function dateBadge(iso) {
-      try { return new Date(iso).toLocaleString('en-GB', {month:'short', year:'numeric'}).toUpperCase(); }
+      try { return new Date(iso).toLocaleString('en-GB',{month:'short',year:'numeric'}).toUpperCase(); }
       catch(e) { return ''; }
+    }
+
+    function buildCard(artist, badge, dur, tags, src, picUrl, idx) {
+      const card = document.createElement('div');
+      card.className = 'mc-card';
+      if (idx >= 4) card.classList.add('mc-hide-mob');
+      card.dataset.src = src;
+      card.onclick = function() { playMix(this); };
+      card.innerHTML = `
+        <div class="mc-card-art"></div>
+        <div class="mc-card-body">
+          <div class="mc-top"><span class="mc-src-badge">HKCR · ${badge}</span><span class="mc-dur">${dur}</span></div>
+          <div><p class="mc-artist">${artist}</p><p class="mc-show">Yee. presents</p></div>
+          <div class="mc-bot"><div class="mc-tags">${tags}</div><span class="mc-play-btn">▶ Play</span></div>
+          <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>
+        </div>`;
+      if (picUrl) {
+        card.querySelector('.mc-card-art').style.backgroundImage = `url('${picUrl}')`;
+      }
+      return card;
     }
 
     fetch('https://api.mixcloud.com/yeehk/cloudcasts/?limit=8&offset=0')
       .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(data => {
         grid.innerHTML = '';
-        (data.data || []).forEach(item => {
-          const artist   = parseArtist(item.name);
-          const badge    = dateBadge(item.created_time);
-          const dur      = item.audio_length ? fmtDur(item.audio_length) : '—';
-          const tags     = (item.tags || []).slice(0, 4).map(t => `<span class="mc-tag">${t.name}</span>`).join('');
-          const feed     = encodeURIComponent(item.key);
-          const src      = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
-          const card     = document.createElement('div');
-          card.className = 'mc-card';
-          card.dataset.src = src;
-          card.onclick   = function() { playMix(this); };
-          card.innerHTML = `
-            <div class="mc-top"><span class="mc-src-badge">HKCR · ${badge}</span><span class="mc-dur">${dur}</span></div>
-            <div><p class="mc-artist">${artist}</p><p class="mc-show">Yee. presents</p></div>
-            <div class="mc-bot"><div class="mc-tags">${tags}</div><span class="mc-play-btn">▶ Play</span></div>
-            <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>`;
-          grid.appendChild(card);
+        (data.data || []).forEach((item, idx) => {
+          const artist = parseArtist(item.name);
+          const badge  = dateBadge(item.created_time);
+          const dur    = item.audio_length ? fmtDur(item.audio_length) : '—';
+          const tags   = (item.tags||[]).slice(0,4).map(t=>`<span class="mc-tag">${t.name}</span>`).join('');
+          const feed   = encodeURIComponent(item.key);
+          const src    = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
+          const pics   = item.pictures || {};
+          const picUrl = pics.extra_large || pics['1024wx1024h'] || pics.large || pics['640wx640h'] || pics.medium || '';
+          grid.appendChild(buildCard(artist, badge, dur, tags, src, picUrl, idx));
         });
       })
       .catch(() => {
-        // Fallback: 4 confirmed hardcoded shows
+        // Fallback: 8 hardcoded shows
         grid.innerHTML = '';
         [
-          {a:'TFEELSCARY', d:'May 2026', dur:'1:01:04', t:['techno','detroit','industrial','minimal'], s:'yee-presents-tfeelscary-01052026-hkcr'},
-          {a:'Tuesday',    d:'Apr 2026', dur:'58:33',   t:['bassline','uk bass','garage'],             s:'yee-presents-tuesday-02042026-hkcr'},
-          {a:'Ezzrei',     d:'Mar 2026', dur:'1:01:04', t:['electronic','bass','jungle','uk bass'],    s:'yee-presents-ezzrei-05032026-hkcr'},
-          {a:'Oscar Days', d:'Feb 2026', dur:'1:01:04', t:['electronic','house','techno'],             s:'yee-presents-oscar-days-05022026-hkcr'},
-        ].forEach(x => {
-          const feed = encodeURIComponent('/yeehk/' + x.s + '/');
+          {a:'TFEELSCARY',                  d:'May 2026', dur:'1:01:04', t:['techno','detroit','industrial','minimal'],      s:'yee-presents-tfeelscary-01052026-hkcr'},
+          {a:'Tuesday',                     d:'Apr 2026', dur:'58:33',   t:['garage (ukg)','uk bass','bassline / niche'],     s:'yee-presents-tuesday-02042026-hkcr'},
+          {a:'Ezzrei',                      d:'Mar 2026', dur:'1:01:04', t:['uk bass','jungle','bass','electronic'],          s:'yee-presents-ezzrei-05032026-hkcr'},
+          {a:'Oscar Days',                  d:'Feb 2026', dur:'1:08:51', t:['electronic','techno','deep techno','idm'],       s:'yee-presents-oscar-days-05022026-hkcr'},
+          {a:'Linh Violet',                 d:'Jan 2026', dur:'1:01:25', t:['electronic','techno','industrial techno','idm'], s:'yee-presents-linh-violet-01012026-hkcr'},
+          {a:'adam. b2b Tuesday b2b Oscar Days', d:'Dec 2025', dur:'56:12', t:['house','deep house','deep tech / deep tech house','soulful house'], s:'yee-presents-adam-b2b-tuesday-b2b-oscar-days-04122025-hkcr'},
+          {a:'VSLORIA',                     d:'Nov 2025', dur:'1:01:28', t:['electronic','tribal','techno','deep techno'],    s:'yee-presents-vsloria-06112025-hkcr'},
+          {a:'adam. Vol 2',                 d:'Oct 2025', dur:'1:11:41', t:['techno','deep techno','dub techno','acid techno'],s:'yee-presents-adam-vol-2-02102025-hkcr'},
+        ].forEach((x, idx) => {
+          const feed = encodeURIComponent('/yeehk/'+x.s+'/');
           const src  = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&dark=1&autoplay=0&feed=${feed}`;
-          const tags = x.t.map(t => `<span class="mc-tag">${t}</span>`).join('');
-          const card = document.createElement('div');
-          card.className  = 'mc-card';
-          card.dataset.src = src;
-          card.onclick    = function() { playMix(this); };
-          card.innerHTML  = `
-            <div class="mc-top"><span class="mc-src-badge">HKCR · ${x.d}</span><span class="mc-dur">${x.dur}</span></div>
-            <div><p class="mc-artist">${x.a}</p><p class="mc-show">Yee. presents</p></div>
-            <div class="mc-bot"><div class="mc-tags">${tags}</div><span class="mc-play-btn">▶ Play</span></div>
-            <div class="mc-player"><iframe width="100%" height="60" frameborder="0" allow="autoplay" src="about:blank"></iframe></div>`;
-          grid.appendChild(card);
+          const tags = x.t.map(t=>`<span class="mc-tag">${t}</span>`).join('');
+          grid.appendChild(buildCard(x.a, x.d, x.dur, tags, src, '', idx));
         });
       });
   })();
 </script>
 </body>
+</html>
 </html>
