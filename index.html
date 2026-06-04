@@ -14,7 +14,7 @@
   <link rel="icon" href="https://thumbnailer.mixcloud.com/unsafe/32x32/profile/d/3/e/9/ddac-4553-4832-aeb6-2814977fa649" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -25,6 +25,7 @@
       --dk: #111111;
       --fb:'Barlow Condensed',sans-serif;
       --fa:'Syne',sans-serif;
+      --fl:'Archivo Black',sans-serif;
       --fm:'Space Mono',monospace;
       --fb2:'DM Sans',sans-serif;
     }
@@ -37,7 +38,7 @@
     nav { position:fixed; top:0; left:0; right:0; height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 2.5rem; background:#111; border-bottom:1px solid rgba(255,255,255,.08); z-index:100; }
     .logo-wrap { display:flex; align-items:center; gap:10px; cursor:pointer; background:none; border:none; padding:0; }
     .logo-img  { width:30px; height:30px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.2); }
-    .logo-tx   { font-family:var(--fa); font-weight:700; font-size:18px; letter-spacing:-0.01em; color:#fff; }
+    .logo-tx   { font-family:var(--fl); font-weight:400; font-size:19px; letter-spacing:-0.02em; color:#fff; }
     .nav-links { display:flex; gap:1.75rem; list-style:none; }
     .nav-links a { font-family:var(--fb); font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.5); transition:color .15s; }
     .nav-links a:hover, .nav-links a.active { color:#fff; }
@@ -67,7 +68,7 @@
     .hero { display:grid; grid-template-columns:1fr 260px 1fr; border-bottom:1px solid var(--br); min-height:480px; }
     .hero-l { padding:3.5rem 2.5rem; border-right:1px solid var(--br); display:flex; flex-direction:column; gap:1rem; }
     .hero-eye { font-family:var(--fm); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tx3); }
-    .hero-name { font-family:var(--fa); font-weight:800; font-size:clamp(56px,9vw,130px); letter-spacing:-0.05em; line-height:0.88; }
+    .hero-name { font-family:var(--fl); font-weight:400; font-size:clamp(56px,9vw,130px); letter-spacing:-0.04em; line-height:0.88; }
     .hero-stmt { font-size:14px; font-weight:300; line-height:1.8; color:#333; max-width:380px; }
     .hero-stmt strong { color:var(--tx); font-weight:500; }
     .hero-zh { font-size:13px; font-weight:300; line-height:1.8; color:#555; max-width:380px; margin-top:.75rem; padding-top:.75rem; border-top:1px solid var(--br); }
@@ -141,18 +142,18 @@
     /* Show more — mobile only */
     .mc-more-wrap { display:none; padding:1.5rem 2.5rem; background:#111; border-top:1px solid rgba(255,255,255,.08); text-align:center; }
 
-    /* PLATFORMS — BLACK tiles */
-    .plat-sec { background:#111; }
-    .plat-hd { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 2.5rem; border-bottom:1px solid rgba(255,255,255,.1); }
-    .plat-hd-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(28px,4vw,48px); letter-spacing:-0.02em; line-height:1; color:#fff; }
-    .plat-grid { display:grid; grid-template-columns:repeat(4,1fr); border-left:1px solid rgba(255,255,255,.1); }
-    .plat-card { display:flex; flex-direction:column; justify-content:space-between; padding:2rem 2.5rem; border-right:1px solid rgba(255,255,255,.1); border-bottom:1px solid rgba(255,255,255,.1); min-height:130px; transition:background .15s; cursor:pointer; background:#111; }
-    .plat-card:hover { background:#1c1c1c; }
+    /* PLATFORMS — LIGHT tiles */
+    .plat-sec { background:var(--bg2); }
+    .plat-hd { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 2.5rem; border-bottom:1px solid var(--br); }
+    .plat-hd-ttl { font-family:var(--fa); font-weight:700; font-size:clamp(28px,4vw,48px); letter-spacing:-0.02em; line-height:1; color:var(--tx); }
+    .plat-grid { display:grid; grid-template-columns:repeat(4,1fr); border-left:1px solid var(--br); }
+    .plat-card { display:flex; flex-direction:column; justify-content:space-between; padding:2rem 2.5rem; border-right:1px solid var(--br); border-bottom:1px solid var(--br); min-height:130px; transition:background .15s,box-shadow .15s; cursor:pointer; background:var(--bg); }
+    .plat-card:hover { background:#fff; box-shadow:0 2px 20px rgba(0,0,0,.06); }
     .plat-card:nth-child(4n) { border-right:none; }
     .plat-card:last-child { border-right:none; }
-    .plat-nm  { font-family:var(--fb); font-weight:700; font-size:17px; letter-spacing:0.04em; text-transform:uppercase; color:#fff; margin-bottom:6px; }
-    .plat-ds  { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,.4); }
-    .plat-ar  { font-size:14px; color:rgba(255,255,255,.25); align-self:flex-end; transition:color .15s,transform .15s; }
+    .plat-nm  { font-family:var(--fb); font-weight:700; font-size:17px; letter-spacing:0.04em; text-transform:uppercase; color:var(--tx); margin-bottom:6px; }
+    .plat-ds  { font-family:var(--fm); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--tx2); }
+    .plat-ar  { font-size:14px; color:var(--tx3); align-self:flex-end; transition:color .15s,transform .15s; }
     .plat-card:hover .plat-ar { color:var(--or); transform:translate(2px,-2px); }
 
     /* ═══ ABOUT ═══ */
@@ -242,7 +243,7 @@
       .ab-photo { min-height:320px; max-height:480px; border-top:1px solid var(--br); }
       .arc-collage { columns:2; }
       .plat-grid { grid-template-columns:repeat(3,1fr); }
-      .plat-card:nth-child(4n) { border-right:1px solid rgba(255,255,255,.1); }
+      .plat-card:nth-child(4n) { border-right:1px solid var(--br); }
       .plat-card:nth-child(3n) { border-right:none; }
     }
     @media (max-width:800px) {
@@ -253,7 +254,7 @@
       .mc-more-wrap { display:block; }
       .mc-card-body { padding:1.5rem 1.25rem; min-height:170px; }
       .plat-grid { grid-template-columns:repeat(2,1fr); }
-      .plat-card:nth-child(3n) { border-right:1px solid rgba(255,255,255,.1); }
+      .plat-card:nth-child(3n) { border-right:1px solid var(--br); }
       .plat-card:nth-child(2n) { border-right:none; }
       nav .nav-links { display:none; }
       .hamburger { display:flex; }
@@ -394,7 +395,7 @@
       <a class="plat-card" href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">
         <div><p class="plat-nm">Mixcloud</p><p class="plat-ds">Mixes &amp; DJ Sets</p></div><span class="plat-ar">↗</span>
       </a>
-      <a class="plat-card" href="https://soundcloud.com/yee-hkuk1" target="_blank" rel="noopener">
+      <a class="plat-card" href="https://soundcloud.com/yeehk" target="_blank" rel="noopener">
         <div><p class="plat-nm">SoundCloud</p><p class="plat-ds">Tracks &amp; Mixes</p></div><span class="plat-ar">↗</span>
       </a>
       <a class="plat-card" href="https://yeehk.substack.com/" target="_blank" rel="noopener">
@@ -641,7 +642,7 @@
   <div class="ft-lks">
     <a href="https://yeehk.substack.com/" target="_blank" rel="noopener">Substack</a>
     <a href="https://www.mixcloud.com/yeehk/" target="_blank" rel="noopener">Mixcloud</a>
-    <a href="https://soundcloud.com/yee-hkuk1" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://soundcloud.com/yeehk" target="_blank" rel="noopener">SoundCloud</a>
     <a href="https://www.youtube.com/@yee._hk" target="_blank" rel="noopener">YouTube</a>
     <a href="https://www.instagram.com/yee.___hk/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://ra.co/promoters/166205" target="_blank" rel="noopener">RA</a>
@@ -814,5 +815,4 @@
   })();
 </script>
 </body>
-</html>
 </html>
